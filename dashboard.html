@@ -74,13 +74,16 @@
 		</tr>
       </thead>
       <tbody id="table_result">
+
       
       
       
       </tbody>
         
     </table>
-    
+    <center>
+    <img id="table-loading" src="img/ajax-loader.gif" />
+    </center>
   </div>
   </div>
   </div>
@@ -120,8 +123,8 @@
   });
   $("#start_scan").click(function(event){
     //TODO: start a scan on server
-    var tryer =report.start();
-    var timeDiv = document.getElementById('scan_timer');
+    report.start();
+    /*var timeDiv = document.getElementById('scan_timer');
     if(tryer === true){
         scanTime.start();
     
@@ -139,7 +142,7 @@
      
     }else{
       timeDiv.innerHTML = "Scan Not Started, Try turing it off and on again. And please ensure your computer is plugged in.";
-    }
+    }*/
   });
 
   $("#stop_scan").click(function(event){

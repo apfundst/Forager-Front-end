@@ -214,6 +214,7 @@ var Render = {
             .replace( /\{\{numPages\}\}/, data[i].pages_scanned );
             //.replace( /\{\{date\}\}/, data[i].date ) 
         }
+        $("#table-loading").hide();
         result.innerHTML = inner;
 
     },
@@ -283,10 +284,22 @@ var report = {
                 url: "includes/scan_start.php",
                 data: {userId: Session.userId},
                 success: function(data) {
-                    
-                        console.log("success");
-                        console.log(data);
-                        return true;
+                        var timeDiv = document.getElementById('scan_timer');
+                        scanTime.start();
+    
+                            console.log(Session);
+                            
+                            //$(this).prop('disabled', true);
+                            $("start_scan").hide();
+                            $("#stop_scan").show();
+                            
+                            var reportDiv = document.getElementById('data_echo');
+                            scanTime.timer = setInterval(function () {
+                              timeDiv.innerHTML = "Seconds since the start: " + (scanTime.getElapsed()/1000);
+                              //reportDiv.innerhtml = reportViewer.getData();
+                            }, 1000);
+
+                        //return true;
                         
 
                         //Render.renderExistingReports(data, template,result);
@@ -294,9 +307,11 @@ var report = {
                        
                 },
                 error: function (xhr, textStatus, errorThrown) {
-                    console.log("fail");
-                    return false;
 
+                            
+                    var timeDiv = document.getElementById('scan_timer');
+                    console.log("fail");
+                    timeDiv.innerHTML = "Scan Not Started, Try turing it off and on again. And please ensure your computer is plugged in.";
                     
                 }
             });
