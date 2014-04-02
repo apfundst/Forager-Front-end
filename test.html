@@ -1,0 +1,31 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="css/dashboard.css">
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.0.js"></script>
+<script type="text/javascript" src="js/session.js"></script>
+</head>
+<body>
+<button id="start_scan">Start Scan</button>
+    <button id="stop_scan">Stop Scan</button>
+    <div id="data_echo"></div>
+
+<script type="text/javascript">
+  $("#start_scan").click(function(event){
+      //TODO: start a scan on server
+      
+          scanTime.start();
+      
+      console.log(Session);
+      
+      //$(this).prop('disabled', true);
+      $(this).hide();
+      $("#stop_scan").show();
+      
+      var reportDiv = document.getElementById('data_echo');
+      scanTime.timer = setInterval(function () {
+        reportDiv.innerhtml = reportViewer.getData();
+      }, 1000);
+    });
+</script>
+</body>
+</html>

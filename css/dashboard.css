@@ -1,0 +1,248 @@
+/************************************
+
+			dashboard.css
+
+*************************************/
+.navbar {
+  position: relative;
+  min-height: 50px;
+  
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  background-color: #0e855b;
+  padding: 10px
+}
+
+.navbar-static-side {
+  z-index: 1;
+  position: absolute;
+  width: 250px;
+}
+.navbar-default {
+  background-color: #222222;
+  border-color: #e7e7e7;
+}
+.container_fluid {
+  margin-right: auto;
+  margin-left: auto;
+}
+.main {
+	width: 100%;
+	height: 100%;
+	background-color: white;
+	margin:-1px;
+}
+body {
+	background-image:url('../img/cell_big.jpg');
+  	background-image:repeat;
+  	margin:0px;
+  	font-family: 'Ubuntu', sans-serif;
+}
+div {
+  display: block;
+}
+
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+@media(max-width: 1350px){
+.col-lg-9, .col-lg-3,  .col-lg-12 {
+    width: 100%;
+  }
+}
+.col-lg-9, .col-lg-3, .col-lg-4, .col-lg-8,  .col-lg-12 {
+    float: left;
+  }
+.col-lg-12 {
+    width: 100%;
+  }
+  
+.col-lg-8 {
+    width: 34%;
+  }
+  
+.col-lg-4 {
+    width: 33%;
+  }
+  .col-lg-9 {
+    width: 75%;
+  }
+  
+.col-lg-3 {
+    width: 24%;
+  }
+
+.panel {
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  background-color: #fff;
+  border: 1px solid;
+  border-radius: 3px;
+  
+}
+.panel_default {
+  border-color: #ddd;
+  
+}
+.panel_heading {
+  color: #ffffff;
+  font-size: 20px;
+  font-style: bold;
+  text-align: center;
+  background-color: #619080;
+  border-color: #ddd;
+  padding: 15px;
+  padding:20px;
+}
+/*USED IN TABLES */
+#side_data_s{
+  text-align: left;
+  position: relative;
+  width: 4%;
+  padding: 10px;
+  margin-bottom: -1px;
+  background-color: none;
+  border-collapse:collapse;
+  
+}
+/*added --Used for other data--*/
+#side_data_m{
+  text-align: left;
+  position: relative;
+  width: 6%;
+  padding: 10px;
+  margin-bottom: -1px;
+  background-color: none;
+  border-collapse:collapse;
+  
+}
+/*added --Used for other data--*/
+#side_data_l{
+  text-align: left;
+  position: relative;
+  width: 10%;
+  padding: 10px;
+  margin-bottom: -1px;
+  background-color: none;
+  border-collapse:collapse;
+  
+}
+/*added --Used for the main data coming in--*/
+#main_data{
+  
+  text-align: left;
+  position: relative;
+  width: 60%;
+  padding: 10px;
+  margin-bottom: -1px;
+  background-color: none;
+  border: none;
+  color: #444444;
+}
+/*added --Used for the individual forms--*/
+#table_contents{
+background:none;
+border:none;
+font-size: 20px;
+color:#444444;
+text-decoration:underline;
+cursor:pointer;
+width:100%; 
+white-space:normal;
+}
+#table_contents:hover{
+color:blue;
+}
+/*added --Used for the data rows--*/
+#goups_background{
+  padding:0px;
+  margin-bottom: -1px;
+  background-color: none;
+  border: 1px solid #ddd;
+  color: #444444;
+  width:100%;
+}
+.tr_clickable{
+background-color:#ecf0f1;
+}
+.tabel_title {
+  background-color: #939BA1;
+  color: #FFC425;
+}
+/* END TABLES   */
+button#start_scan{
+  padding: 20px;
+  color: #619080;
+  margin: 0, auto;
+}
+button#stop_scan{
+  padding: 20px;
+  color: #619080;
+
+  margin: 0, auto;
+}
+button.menu{
+    border: 1px solid #FFC425;
+  background-color:  #619080;
+  padding: 8px;
+  margin-left: 10px;
+  font-size: 20px;
+  color: white;
+  border-radius: 3px;
+}
+button.menu:hover{
+    border: 1px solid #FFC425;
+  background-color:  #FFC425;
+  padding: 8px;
+  margin-left: 10px;
+  font-size: 20px;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer; cursor: hand;
+}
+/* tree stuff */
+ul.tree, ul.tree ul {
+     list-style-type: none;
+     
+     margin: 0;
+     padding: 0;
+   }
+   
+   ul.tree ul {
+     margin-left: 10px;
+   }
+
+   ul.tree li {
+     margin: 0;
+     padding: 0 12px;
+   }
+
+ul.tree li:before{
+    content:"+";
+}
+a{
+    color:blue;
+    text-decoration:underline;
+}
+a:hover {
+  cursor: pointer; cursor: hand;
+  color:yellow;
+}
+div.items div:not(:target) {display: none}
+div.items div:target {display: block}
+.tab {
+  text-decoration: none;
+  color: #FFC425;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  padding: 15px;
+  text-align: center;
+  margin-top: 10px;
+  margin-left: 15px;
+  border-radius: 3px;
+  background-color: #939BA1;
+  margin-bottom: -1px;
+}

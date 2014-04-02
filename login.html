@@ -1,0 +1,67 @@
+<html>
+<head>
+<!--style sheets-->
+<link rel="stylesheet" type="text/css" href="css/dashboard.css">
+<link rel="stylesheet" type="text/css" href="css/login.css">
+<!--javascript imports-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.0.js"></script>
+<script type="text/javascript" src="js/session.js"></script>
+</head>
+<body>
+
+<div class="container_fluid">
+<nav class="navbar-default-login" role="navigation">
+<img src="img/logo.png" width="400" style="margin-top:8px; margin-bottom:8px;"/>
+<!--<img src="img/SPSU_WORD_RGB.png" width="200"/>-->
+<div style="float:right;">
+  <div id="error_tag" style="color:red; margin-top:5px;"></div>
+  
+  <form id="login_form">
+    <br>
+    <div style="color:white;" style="float:right;">
+      Username: <input id="un"type="text" name="firstname">
+      Password: <input id="pass" type="password" name="lastname">
+      <input type="submit" value="Login">
+    </div>
+  </form>
+  <script type="text/javascript">
+        $( "#login_form" ).on( "submit", function( event ) 
+        {
+          event.preventDefault();
+          
+          Session.login($("#un").val(), $("#pass").val());
+        });
+  </script>
+</div>
+</nav>
+
+
+<div class="row">
+<div>
+  <br><br><br><br><br><br>
+</div>
+  <div class="col-lg-12">
+    <div class="panel">
+    <div class="panel_heading">
+      Forager
+    </div>
+    <div class="panel_body">
+    <br>
+    <br>
+    <h1 class="forager-title">
+      Forager: A Web Improvement Tool
+    </h1>
+    <br>
+    <h2 class="login-text">
+      Welcome to Forager, a simple tool for scanning your website.
+    </h2>
+    <br><br><br>
+    </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<link href='http://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
+</body>
+</html>

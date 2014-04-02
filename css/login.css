@@ -1,0 +1,50 @@
+/************************************
+			
+		login.css
+
+*************************************/
+.col-md-8 {
+    width: 34%;
+    margin-right: auto; 
+    margin-left:auto
+}
+
+.navbar-default-login {
+  position: fixed;
+  top: 0;
+  background-color: #222222;
+  border-color: #e7e7e7;
+  width: 100%;
+}
+
+.navbar-login {
+  background-color: #222222;
+  border-color: #e7e7e7;
+}
+
+h1,
+.h1{
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.1;
+  color: #444444;
+}
+h1{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+h2 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+h2 {
+  font-weight: normal;
+}
+h1,
+.h1 {
+  font-size: 53px;
+}
+h2,
+.h2 {
+  font-size: 35px;
+}

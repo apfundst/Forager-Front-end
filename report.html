@@ -1,0 +1,173 @@
+<html>
+<head>
+<title>Forager: Report</title>
+<link rel="stylesheet" type="text/css" href="css/dashboard.css">
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.0.js"></script>
+<script type="text/javascript" src="js/session.js"></script>
+</head>
+<body>
+
+<div class="container_fluid">
+<nav class="navbar navbar-default" role="navigation">
+<a href="dashboard.html"><img src="img/logo.png" width="400" style="margin-top:8px; margin-bottom:8px;"/></a>
+<div style="color:white; float:right;">
+     <a href="dashboard.html"><button  class="menu" >Home</button></a>
+      <button id="log_out" class="menu">Logout</button><br>
+      <span id="user_logged_in"></span>
+   
+      
+    
+    </div>
+
+
+</nav>
+
+<div class="row">
+<div class="col-lg-12">
+<div class="panel">
+  <div class="panel_body">
+  </div>
+  <!--<div class="panel_heading">
+    Error Report for: "this report"
+  </div>-->
+  <div class="panel_body" id="report_info">
+    
+  </div>  
+  <div class="panel_body">
+  <div class="panel_heading">
+    Errors
+  </div>
+<script type="text/javascript">
+</script>
+<br>
+<center><p>
+  <a class="tab" href="#item1">Table Report</a>
+  <a class="tab" href="#item2">Tree Report</a>
+  </p>
+  <hr></center>
+    
+
+<div class="items">
+  <div id="item1">
+  <table id="goups_background">
+      <thead>
+        <tr class="tr_non_clickable"id="goups_background">
+    <th id="main_data" class="tabel_title" style="color:#FFC425;">
+    URL
+
+    </th>
+
+    <th id="side_data_s" class="tabel_title">
+    Error Type
+    </th>
+    </tr>
+      </thead>
+      <tbody id="error_display">
+      
+        
+      
+      </tbody>
+        
+    </table>
+    </div>
+  <div id="item2">    
+    <ul class="tree">
+      <li>
+          <a>domain</a>
+          <ul>
+              <li><a>pages</a>
+          <ul>
+              <li>errors</li>  
+              <li>errors</li>  
+              <li>Aerr</li>  
+              <li>error</li>            
+          </ul>   </li>  
+              <li>errors</li>  
+              <li>errors</li>  
+              <li>errors</li>            
+          </ul>                
+      </li>
+      
+      <li>
+          <a>domain</a>
+          <ul>
+              <li>page</li>  
+              <li>page</li>      
+          </ul>                
+      </li>
+  </ul>
+  
+  </div>
+  <div id="default" > <h1>Select a report type above</h1></div>
+</div>
+
+    <!--<table id="goups_background">
+      <thead>
+        <tr class="tr_non_clickable"id="goups_background">
+    <th id="main_data" class="tabel_title" style="color:#FFC425;">
+    URL
+
+    </th>
+
+    <th id="side_data_s" class="tabel_title">
+    Error Type
+    </th>
+    </tr>
+      </thead>
+      <tbody id="error_display">
+      
+        
+      
+      </tbody>
+        
+    </table>-->
+    
+  </div>
+  </div>
+  </div>
+  </div>
+  
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){
+    Session.check();
+    var str = "Logged in as: " + Session.name;
+    $("#user_logged_in").html(str);
+    console.log(getFromUrl("id"));
+  });
+  $("#log_out").click(function(event){
+    Session.logout();
+  });
+  </script>
+
+  <script type="text/javascript" id="error_table">
+    <tr class="tr_clickable" id="goups_background">
+          <td id="main_data">{{url}}
+          </td>
+          
+          <td id="side_data_s">{{type}}
+          </td>
+        </tr>
+  </script>
+  <script type="text/javascript" id="scan_details">
+    <table id="groups_background" id="report_details">
+        <tr class="tr_non_clickable" id ="groups_background">
+            <th id= "side_data_l" class="tabel_title" style="color:#FFC425;">
+              Date/Time: {{date}}
+            </th>
+            <th id= "side_data_l" class="tabel_title" style="color:#FFC425;">
+            Scan Time: {{time}}
+            </th>
+            <th id= "side_data_l" class="tabel_title" style="color:#FFC425;">
+            Scanned Pages: {{pages}}
+            </th>
+            <th id= "side_data_l" class="tabel_title" style="color:#FFC425;">
+            Total Errors: {{errors}}
+            </th>
+          </tr>   
+            </table>
+  </script>
+  
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
+  </body>
+  </html>
