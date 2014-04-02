@@ -13,7 +13,7 @@ var Session = {
     login: function(usn, pass){
     	console.log(usn);
     	console.log(pass);
-    	$.post("login_request.php",{un: usn, password: pass})
+    	$.post("includes/login_request.php",{un: usn, password: pass})
 
     	.done(function(result) {
     		if(result != 400){
@@ -118,7 +118,7 @@ var curReport = {
     totalErrors: 0,
     totalTime: 0,
     getFromServer: function(){
-        $post("get_report.php",{id: curReport.id})
+        $post("includes/get_report.php",{id: curReport.id})
         .done(function(){
 
         })
@@ -141,7 +141,7 @@ var scan = {
         $.ajax ({
         dataType: "json",
         type: "POST",
-        url: "start_scan.php",
+        url: "includes/start_scan.php",
         data: scan,
         success: function(data) {
             window.location = "dashboard.html";
@@ -160,7 +160,7 @@ var scan = {
         $.ajax ({
             dataType: "json",
             type: "POST",
-            url: "stop_scan.php",
+            url: "includes/stop_scan.php",
             data: scan,
             success: function(data) {
                  window.location = "dashboard.html";
@@ -182,7 +182,7 @@ var allReports = {
         $.ajax ({
                 dataType: "json",
                 type: "POST",
-                url: "get_reports.php",
+                url: "includes/get_reports.php",
                 data: {userId: Session.userId},
                 success: function(data) {
                     
@@ -254,7 +254,7 @@ var reportViewer = {
         $.ajax ({
                 dataType: "json",
                 type: "POST",
-                url: "scan_data.php",
+                url: "includes/scan_data.php",
                 data: {scanId: id},
                 success: function(data) {
                     
@@ -280,7 +280,7 @@ var report = {
         $.ajax ({
                 dataType: "json",
                 type: "POST",
-                url: "scan_start.php",
+                url: "includes/scan_start.php",
                 data: {userId: Session.userId},
                 success: function(data) {
                     
@@ -306,7 +306,7 @@ var report = {
         $.ajax ({
                 dataType: "json",
                 type: "POST",
-                url: "scan_stop.php",
+                url: "includes/scan_stop.php",
                 data: {userId: Session.userId},
                 success: function(data) {
                     
