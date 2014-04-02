@@ -246,11 +246,19 @@ ul.tree, ul.tree ul {
 ul.tree li:before{
     content:"+";
 }
-a{
+.report_menu_list a{
+    color:blue;
+    text-decoration: none;
+}
+.report_menu_list a:hover {
+  cursor: pointer; cursor: hand;
+  color:yellow;
+}
+.tree a{
     color:blue;
     text-decoration:underline;
 }
-a:hover {
+.tree a:hover {
   cursor: pointer; cursor: hand;
   color:yellow;
 }
@@ -262,11 +270,38 @@ div.items div:target {display: block}
   border-top: 1px solid black;
   border-left: 1px solid black;
   border-right: 1px solid black;
-  padding: 15px;
+  padding: 10px;
   text-align: center;
-  margin-top: 10px;
-  margin-left: 15px;
-  border-radius: 3px;
+  margin-top: -1px;
+  
+  
   background-color: #939BA1;
   margin-bottom: -1px;
+}
+.items {
+  display: inline-block;
+  width: 80%;
+  overflow: hidden;
+  margin-top: -1px;
+}
+.report_menu {
+  display: inline-block;
+  width: 10%;
+  padding-right: 5%;
+  vertical-align: top;
+  background-color: #ddd;
+  min-width: 180px;
+}
+@media(max-width: 1250px){
+  .items{
+    width:70%;
+  }
+}
+@media(max-width: 750px){
+  .items{
+    width:60%;
+  }
+}
+.report_menu_list {
+  list-style-type: none;
 }
