@@ -93,7 +93,7 @@
 <script type="text/javascript">
   $(document).ready(function(){
     Session.check();
-    $("#stop_scan").hide();
+    //$("#stop_scan").hide();
     var str = "Logged in as: " + Session.name;
     $("#user_logged_in").html(str);
     var reportTableResult = document.querySelector('#table_result');
@@ -143,6 +143,13 @@
     }else{
       timeDiv.innerHTML = "Scan Not Started, Try turing it off and on again. And please ensure your computer is plugged in.";
     }*/
+  });
+  $('input[type="checkbox"]').change(function(event) {
+      console.log($("input:checked").length);
+  });
+
+  $("input:checkbox").click(function(){
+    console.log($("input:checked").length);
   });
 
   $("#stop_scan").click(function(event){

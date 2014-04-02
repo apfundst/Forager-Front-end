@@ -176,15 +176,36 @@ background-color:#ecf0f1;
 }
 /* END TABLES   */
 button#start_scan{
-  padding: 20px;
-  color: #619080;
+  padding: 35px;
+  font-size: 25pt;
+  color: white;
   margin: 0, auto;
+  border: 1px solid #FFC425;
+  background-color:  #619080;
+  border-radius: 5px;
+  cursor: pointer; cursor: hand;
+}
+button#start_scan:hover{
+  
+  color: #FFC425;
+  
+  background-color:  #619080;
+  border-radius: 5px;
 }
 button#stop_scan{
-  padding: 20px;
-  color: #619080;
-
+  padding: 35px;
+  font-size: 25pt;
+  color: white;
   margin: 0, auto;
+  margin: 0, auto;
+  border: 1px solid white;
+  background-color: #f78181;
+  border-radius: 5px;
+  cursor: pointer; cursor: hand;
+}
+button#stop_scan:hover{
+  color: pink;
+  border-radius: 5px;
 }
 button.menu{
     border: 1px solid #FFC425;
