@@ -52,7 +52,7 @@
   <div class="panel_heading">Compare Reports</div>
   <div class="panel_body">
     <div class="row">
-    <form >
+    <form>
     <div class="dropdown">
       <select id="select_dropdown1">
 
@@ -70,7 +70,7 @@
           var drop1 = ("#select_dropdown1").val();
           var drop2 = ("#select_dropdown2").val();
           //check that both variables are not null??
-          if(drop1 == null || drop2 == null)
+          if(drop1 == null || drop2 == null || drop1 == drop2)
           {
             //jQuery alert
             alert("Please Select Two Reports");
