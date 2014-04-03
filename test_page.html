@@ -19,6 +19,11 @@
     Scan Controls
   </div>
   <div class="panel_body">
+
+    <select id="select_dropdown">
+
+    </select>
+
     <table id="goups_background">
       <thead>
         <tr class="tr_non_clickable"id="goups_background">
@@ -55,31 +60,13 @@
 <script type="text/javascript">
   $(document).ready(function(){
     var reportTableResults = document.querySelector('#table_result');
+    var reportCompareDropdown = document.querySelector('#select_dropdown');
     var reportTableTmpls = document.querySelector('#reports_template').innerHTML;
+    var reportCompareTmpls = document.querySelector('#compare_dropdown').innerHTML;
     allReports.get(reportTableTmpls, reportTableResults);
+    allReports.getCompare(reportCompareTmpls, reportCompareDropdown);
   });
 
-  $('input[type="checkbox"]').change(function(event) {
-      console.log($("input:checked").length);
-  });
-
-  $("input:checkbox").click(function(){
-    console.log($("input:checked").length);
-  });
-
-  function KeepCount() 
-  {
-    var NewCount = 0
-    if (document.template.tr_clickable.side_data_s.checked)
-    {
-      NewCount = NewCount + 1
-    }
-    if (NewCount == 3)
-    {
-      alert('Only two reports can be compared.')
-      document.joe; return false;
-    }
-  } 
 </script>
 
 <script type="template" id="reports_template">
@@ -92,9 +79,11 @@
         </td>
         <td id="side_data_s">{{numPages}}
         </td>
-        <td id="side_data_s" ><input id="table_contents" type="checkbox" onClick="return KeepCount()"> 
-        </td>
       </tr>
+  </script>
+
+  <script type="template" id="compare_dropdown">
+    <option value="{{id}}">{{name}} </option>
   </script>
 
   <link href='http://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>

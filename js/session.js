@@ -199,7 +199,31 @@ var allReports = {
                     
                 }
             });
+    },
+    //peter
+    getCompare: function(template, result){
+        $.ajax ({
+                dataType: "json",
+                type: "POST",
+                url: "includes/get_reports.php",
+                data: {userId: Session.userId},
+                success: function(data) {
+                    
+                        console.log("success");
+                        console.log(data);
+                        
+                        Render.renderCompareDropdown(data, template,result);
+
+                       
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    console.log("fail");
+
+                    
+                }
+            });
     }
+    //
 }
 var Render = {
     renderExistingReports: function(data, template, result){
@@ -218,6 +242,22 @@ var Render = {
         result.innerHTML = inner;
 
     },
+    //Peter
+    renderCompareDropdown: function(data, template, result){
+        var inner = "";
+        var i = 0;
+        for ( ; i < data.length; i++ ) {
+            inner += template
+            .replace( /\{\{name\}\}/, data[i].scan_name )
+            .replace( /\{\{id\}\}/, data[i].scan_id );
+            //.replace( /\{\{date\}\}/, data[i].date )
+            //.replace( /\{\{numErr\}\}/, data[i].number_errors )
+            //.replace( /\{\{numPages\}\}/, data[i].pages_scanned );
+            //.replace( /\{\{date\}\}/, data[i].date ) 
+        }
+        $("#table-loading").hide();
+        result.innerHTML = inner;
+    },//
     renderReportDetails: function(data, template, result){
         var inner = "";
         var i = 0;
