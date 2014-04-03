@@ -1,6 +1,7 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="css/dashboard.css">
+<link rel="stylesheet" type="text/css" href="css/dropdown.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.0.js"></script>
 <script type="text/javascript" src="js/session.js"></script>
 </head>
@@ -19,11 +20,18 @@
     Scan Controls
   </div>
   <div class="panel_body">
+    <form>
+    <div class="dropdown">
+      <select id="select_dropdown1">
 
-    <select id="select_dropdown">
+      </select>
+    </div>
+    <div class="dropdown">
+      <select id="select_dropdown2">
 
-    </select>
-
+      </select>
+    </div>
+    </form>
     <table id="goups_background">
       <thead>
         <tr class="tr_non_clickable"id="goups_background">
@@ -59,12 +67,14 @@
 
 <script type="text/javascript">
   $(document).ready(function(){
-    var reportTableResults = document.querySelector('#table_result');
-    var reportCompareDropdown = document.querySelector('#select_dropdown');
-    var reportTableTmpls = document.querySelector('#reports_template').innerHTML;
-    var reportCompareTmpls = document.querySelector('#compare_dropdown').innerHTML;
-    allReports.get(reportTableTmpls, reportTableResults);
-    allReports.getCompare(reportCompareTmpls, reportCompareDropdown);
+    var reportTableResult = document.querySelector('#table_result');
+    var reportTableTmpl = document.querySelector('#reports_template').innerHTML;
+    var reportCompareDropdown = document.querySelector('#select_dropdown1');
+    var reportCompareTmpl = document.querySelector('#compare_dropdown').innerHTML;
+    var reportCompareDropdown = document.querySelector('#select_dropdown2');
+    var reportCompareTmpl = document.querySelector('#compare_dropdown').innerHTML;
+    allReports.get(reportTableTmpl, reportTableResult);
+    allReports.getCompare(reportCompareTmpl, reportCompareDropdown);
   });
 
 </script>
