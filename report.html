@@ -265,10 +265,12 @@
   </div>
   <script type="text/javascript">
   $(document).ready(function(){
+    $.ajax({url: 'http://www.spsu.edu', success: function(data) { alert(data); console.log(success); } });
     Session.check();
     var str = "Logged in as: " + Session.name;
     $("#user_logged_in").html(str);
     console.log(getFromUrl("id"));
+
   });
   $('.tree > li a').click(function() {
     $(this).parent().find('ul').toggle();
