@@ -1,0 +1,5 @@
+<?php
+$post_id = $POST('pid');
+//interact with the database
+//need two sets of data...
+?>

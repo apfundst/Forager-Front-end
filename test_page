@@ -1,0 +1,102 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="css/dashboard.css">
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.0.js"></script>
+<script type="text/javascript" src="js/session.js"></script>
+</head>
+<body>
+
+<div class="container_fluid">
+
+<nav class="navbar navbar-default" role="navigation">
+<a href="dashboard.html"><img src="img/logo.png" width="400" style="margin-top:8px; margin-bottom:8px;"/></a>
+</nav>
+
+<div class="row">
+<div class="col-lg-12">
+<div class="panel">
+<div class="panel_heading">
+    Scan Controls
+  </div>
+  <div class="panel_body">
+    <table id="goups_background">
+      <thead>
+        <tr class="tr_non_clickable"id="goups_background">
+		<th id="main_data" class="tabel_title" style="color:#FFC425;">
+		Report Name
+
+		</th>
+          <th id="side_data_l" class="tabel_title" >
+		Date
+		</th>
+		<th id="side_data_s" class="tabel_title">
+		Number of Errors
+		</th>
+		<th id="side_data_s" class="tabel_title" >
+		Pages Scanned
+		</th>
+   <th id="side_data_s" class="tabel_title">
+		Select box
+		</th>
+		</tr>
+      </thead>
+      <tbody id="table_result">
+        <!--dummy results-->
+        
+      </tbody>
+    </table>
+  </div>
+  </div>
+  </div>
+  </div>
+  
+  </div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    var reportTableResult = document.querySelector('#table_result');
+    var reportTableTmpl = document.querySelector('#reports_template').innerHTML;
+    allReports.get(reportTableTmpl, reportTableResult);
+  });
+
+  $('input[type="checkbox"]').change(function(event) {
+      console.log($("input:checked").length);
+  });
+
+  $("input:checkbox").click(function(){
+    console.log($("input:checked").length);
+  });
+
+  function KeepCount() 
+  {
+    var NewCount = 0
+    if (document.template.tr_clickable.side_data_s.checked)
+    {
+      NewCount = NewCount + 1
+    }
+    if (NewCount == 3)
+    {
+      alert('Only two reports can be compared.')
+      document.joe; return false;
+    }
+  } 
+</script>
+
+<script type="template" id="reports_template">
+    <tr class="tr_clickable" id="goups_background">
+        <td id="main_data"><a href="report.html?id={{id}}">{{name}}</a>
+        </td>
+        <td id="side_data_l">{{date}}
+        </td>
+        <td id="side_data_s">{{numErr}}
+        </td>
+        <td id="side_data_s">{{numPages}}
+        </td>
+        <td id="side_data_s" ><input id="table_contents" type="checkbox" onClick="return KeepCount()"> 
+        </td>
+      </tr>
+  </script>
+
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
+  </body>
+  </html>
