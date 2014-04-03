@@ -139,13 +139,14 @@
     $("#user_logged_in").html(str);
     var reportTableResult = document.querySelector('#table_result');
     var reportTableTmpl = document.querySelector('#reports_template').innerHTML;
-    var reportCompareDropdown = document.querySelector('#select_dropdown1');
+    var reportCompareDropdown1 = document.querySelector('#select_dropdown1');
     var reportCompareTmpl = document.querySelector('#compare_dropdown').innerHTML;
-    var reportCompareDropdown = document.querySelector('#select_dropdown2');
+    var reportCompareDropdown2 = document.querySelector('#select_dropdown2');
     var reportCompareTmpl = document.querySelector('#compare_dropdown').innerHTML;
 
     allReports.get(reportTableTmpl, reportTableResult);
-    allReports.getCompare(reportCompareTmpl, reportCompareDropdown);
+    allReports.getCompare(reportCompareTmpl, reportCompareDropdown1);
+    allReports.getCompare(reportCompareTmpl, reportCompareDropdown2);
 
     //console.log(reportTableData);
     //Render.renderExistingReports(reportTableData, reportTableTmpl, reportTableResult);

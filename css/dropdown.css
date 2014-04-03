@@ -1,6 +1,8 @@
 .dropdown p {
 	display: inline-block;
 	font-weight: bold;
+      font-size: 24px;
+      color: #000000;
 }
 
 .dropdown select {
