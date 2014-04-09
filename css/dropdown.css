@@ -3,6 +3,7 @@
 	font-weight: bold;
       font-size: 24px;
       color: #000000;
+      text-align: center;
 }
 
 .dropdown select {
@@ -14,7 +15,7 @@
       background-position: 575px 8px;
       width: 600px;
       height: 50px;
-      text-indent: 0.01px;
+      text-indent: 10px;
       text-overflow: "";
       cursor: pointer;
       color:#000000;
