@@ -1,6 +1,7 @@
-<?php
-$post_id = $POST('pid');
-//interact with the database
+<?
+//post variables for two reports
+$post_id1 = $POST('report1');
+$post_id2 = $POST('report2');
 
 session_start();
 $con = mysqli_connect("localhost","root","forageme","forager");

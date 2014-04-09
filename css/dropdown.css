@@ -1,4 +1,5 @@
-.dropdown p {
+.dropdown p 
+{
 	display: inline-block;
 	font-weight: bold;
       font-size: 24px;
@@ -6,20 +7,22 @@
       text-align: center;
 }
 
-.dropdown select {
-
+.dropdown select 
+{
       border: 0 !important;
       -webkit-appearance: none;
       -moz-appearance: none;
       background: url('http://atmosphere-computers.com/images/drop_down_arrow.png') no-repeat;
       background-position: 575px 8px;
-      width: 600px;
+      width: 400px;
       height: 50px;
       text-indent: 10px;
       text-overflow: "";
       cursor: pointer;
       color:#000000;
 }
-select option {
+
+select option 
+{
   text-align: center;
 }
