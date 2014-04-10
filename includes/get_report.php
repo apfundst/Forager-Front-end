@@ -8,19 +8,18 @@ if (mysqli_connect_errno()){
   exit;
 }
 
-$post_id = mysqli_real_escape_string($con,$report);
 get_report_data($post_id);
 get_graph_data($post_id);
 
 //query database for scan data
-function get_report_data($report_id)
+function get_report_data($scan_id)
 {
-	$report_id = mysqli_real_escape_string($con,$report_id);
+	$scan_id = mysqli_real_escape_string($con,$scan_id);
+	$table = "url" . $post_id;
 
 	$sql = "
 	SELECT *
-	FROM `url`
-	WHERE '$report_id' = scan_id
+	FROM `'$table'`
 	";
 	
 	$result = mysqli_query($con,$sql);
