@@ -32,72 +32,89 @@
 </script>
 <br>
 <center><p>
-  <a class="tab" href="#item1">Tree Report</a>
-  <a class="tab" href="#item2">Graph Report</a>
+  <a class="tab" href="#item1">Similar Errors</a>
+  <a class="tab" href="#item2">New Errors</a>
+  <a class="tab" href="#item3">Graph Report</a>
   </p>
 <hr></center> 
 
 <div class="items">
   <div id="item1">
     <table id="goups_background">
-    <ul class="tree" style="float:left;  border-right:2px solid black;">
-    	Report 1 Title
-      <li>
-          <a>domain</a>
-          <ul>
-              <li><a>pages</a>
-          <ul>
-              <li>errors</li>  
-              <li>errors</li>   
-              <li>error</li>            
-          </ul>   </li>  
-              <li>errors</li>  
-              <li>errors</li>  
-              <li>errors</li>            
-          </ul>                
-      </li>
-      
-      <li>
-          <a>domain</a>
-          <ul>
-              <li>page</li>  
-              <li>page</li>      
-          </ul>                
-      </li>
-  </ul>
-  <ul class="tree" style="float:right; border-left:2px solid black;">
-  	   Report 2 Title
-      <li>
-          <a>domain</a>
-          <ul>
-              <li><a>pages</a>
-          <ul>
-              <li>errors</li>  
-              <li>errors</li>  
-              <li>error</li>            
-          </ul>   </li>  
-              <li>errors</li>  
-              <li>errors</li>  
-              <li>errors</li>            
-          </ul>                
-      </li>
-      
-      <li>
-          <a>domain</a>
-          <ul>
-              <li>page</li>  
-              <li>page</li>      
-          </ul>                
-      </li>
-  </ul>
-  </table>
+        <thead>
+          <tr class="tr_non_clickable"id="goups_background">
+            <th id="main_data" class="tabel_title" style="color:#FFC425;">
+            Link
+            </th>
+
+            <th id="side_data_1" class="tabel_title">
+            Error Type
+            </th>
+
+            <th id="side_data_2" class="tabel_title">
+            Fixed
+            </th>
+
+          </tr>
+        </thead>
+        <tbody id="error_display">
+          <tr class="tr_clickable" id="goups_background">
+          <td id="main_data">{{url}}
+          </td>
+          
+          <td id="side_data_1">{{type}}
+          </td>
+
+          <td id="side_data_2">{{state}}
+          </td>
+        </tbody> 
+    </table>
   </div>
 
   <div id="item2">
-  <table id="goups_background">
-	graph stuff goes here
-  </table>
-    </div>
+    <table id="goups_background">
+      <thead>
+        <tr class="tr_non_clickable"id="goups_background">
+        <th id="main_data" class="tabel_title" style="color:#FFC425;">
+        URL
+        </th>
+
+        <th id="side_data_1" class="tabel_title">
+        Domain
+        </th>
+
+        <th id="side_data_2" class="tabel_title">
+        Error Type
+        </th>
+
+        <th id="side_data_3" class="tabel_title">
+        Error Message
+        </th>
+        </tr>
+      </thead>
+        <tbody id="error_display">
+          <tr class="tr_clickable" id="goups_background">
+            <td id="main_data">{{url}}
+            </td>
+            
+            <td id="side_data_1">{{domain}}
+            </td>
+
+            <td id="side_data_2">{{type}}
+            </td>
+
+            <td id="side_data_2">{{message}}
+            </td>
+          </tr>
+        </tbody>        
+    </table>
+  </div>
+
+  <div id="item3">
+    <table id="goups_background">
+	   graph stuff goes here
+    </table>
+  </div>
   
   <div id="default" > <h1>Select a report type above</h1></div>
 
@@ -106,6 +123,31 @@
 </div>
 </div>
 </div>
+<script type="text/javascript">
+  $(document).ready(function(){
+      Session.check();
+      var str = "Logged in as: " + Session.name;
+      $("#user_logged_in").html(str);
+      
+      $report_id1 = getFromUrl("id1");
+      $report_id2 = getFromUrl("id2");
+
+      //********************************************************************************
+      //now I need to call the reportJS methods, and then fill in the tables
+      //also create the SQL for the calls
+      //********************************************************************************
+
+      var reportTableResult = document.querySelector('#table_result');
+      var reportTableTmpl = document.querySelector('#reports_template').innerHTML;
+
+      allReports.get(reportTableTmpl, reportTableResult);
+      allReports.getCompare(reportCompareTmpl, reportCompareDropdown1);
+      allReports.getCompare(reportCompareTmpl, reportCompareDropdown2);
+
+      //console.log(reportTableData);
+      //Render.renderExistingReports(reportTableData, reportTableTmpl, reportTableResult);
+    });
+</script>
 
 <link href='http://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
 </body>
