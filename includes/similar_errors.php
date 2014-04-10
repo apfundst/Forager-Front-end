@@ -17,10 +17,11 @@
 	$table2 = "url" . $scan_id2;
 
 	$sql = "
-
-	SQL GOES HERE LOLOLOLOLOLOLOLOLOLOLOLOLOLOOLOLOLOL
-
-
+		SELECT *
+		FROM `'$table1'`
+		INNER JOIN `'$table2'`
+		ON '$table1'.url = '$table2'.url
+		GROUP BY '$table1'.domain ORDER BY '$table1'.url DESC;
 	";
 		
 	$result = mysqli_query($con,$sql);
