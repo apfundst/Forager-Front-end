@@ -17,9 +17,8 @@
 	$table2 = "url" . $scan_id2;
 
 	$sql = "
-
-	SQL GOES HERE LOLOLOLOLOLOLOLOLOLOLOLOLOLOOLOLOLOL
-
+	
+	NEED SQL FOR THIS LOLOLOLOLOOLOLOLOLOLOOLOLOLOLOLOLOLOLOLOOL
 
 	";
 		
@@ -36,6 +35,6 @@
 	}
 	else
 	{
-		echo "400";
+		
 	}	
 ?>

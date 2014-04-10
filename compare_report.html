@@ -40,6 +40,7 @@
 
 <div class="items">
   <div id="item1">
+
     <table id="goups_background">
         <thead>
           <tr class="tr_non_clickable"id="goups_background">
@@ -57,16 +58,8 @@
 
           </tr>
         </thead>
-        <tbody id="error_display">
-          <tr class="tr_clickable" id="goups_background">
-          <td id="main_data">{{url}}
-          </td>
-          
-          <td id="side_data_1">{{type}}
-          </td>
-
-          <td id="side_data_2">{{state}}
-          </td>
+        <tbody id="similar_table">
+          <!--script for similar-->
         </tbody> 
     </table>
   </div>
@@ -92,20 +85,8 @@
         </th>
         </tr>
       </thead>
-        <tbody id="error_display">
-          <tr class="tr_clickable" id="goups_background">
-            <td id="main_data">{{url}}
-            </td>
-            
-            <td id="side_data_1">{{domain}}
-            </td>
-
-            <td id="side_data_2">{{type}}
-            </td>
-
-            <td id="side_data_2">{{message}}
-            </td>
-          </tr>
+        <tbody id="new_table">
+          
         </tbody>        
     </table>
   </div>
@@ -128,26 +109,54 @@
       Session.check();
       var str = "Logged in as: " + Session.name;
       $("#user_logged_in").html(str);
-      
-      $report_id1 = getFromUrl("id1");
-      $report_id2 = getFromUrl("id2");
 
       //********************************************************************************
       //now I need to call the reportJS methods, and then fill in the tables
       //also create the SQL for the calls
       //********************************************************************************
 
-      var reportTableResult = document.querySelector('#table_result');
-      var reportTableTmpl = document.querySelector('#reports_template').innerHTML;
+      var report_id1 = getFromUrl("id1");
+      var report_id2 = getFromUrl("id2");
+      var similarErrorTable = document.querySelector('#similar_table');
+      var simialrErrorTmpl = document.querySelector('#similar_errors_template').innerHTML;
+      var newErrorTable = document.querySelector('#new_table');
+      var newErrorTmpl = document.querySelector('#new_errors_template').innerHTML;
 
-      allReports.get(reportTableTmpl, reportTableResult);
-      allReports.getCompare(reportCompareTmpl, reportCompareDropdown1);
-      allReports.getCompare(reportCompareTmpl, reportCompareDropdown2);
-
+      reportJS.getSimilarErrors(report_id1, report_id2, similar_errors_template, similar_table);
+      reportJS.getNewErrors(report_id1, report_id2, new_errors_template, new_table);
       //console.log(reportTableData);
       //Render.renderExistingReports(reportTableData, reportTableTmpl, reportTableResult);
     });
 </script>
+
+<script type="template" id="similar_errors_template">
+  <tr class="tr_clickable" id="goups_background">
+    <td id="main_data">{{url}}
+    </td>
+            
+    <td id="side_data_1">{{type}}
+    </td>
+
+    <td id="side_data_2">{{state}}
+    </td>
+  </tr>
+</script>
+
+<script type="template" id="new_errors_template">
+          <tr class="tr_clickable" id="goups_background">
+            <td id="main_data">{{url}}
+            </td>
+            
+            <td id="side_data_1">{{domain}}
+            </td>
+
+            <td id="side_data_2">{{type}}
+            </td>
+
+            <td id="side_data_3">{{message}}
+            </td>
+          </tr>
+          </script>
 
 <link href='http://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
 </body>

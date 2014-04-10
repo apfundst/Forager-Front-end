@@ -20,7 +20,7 @@ var reportJS = {
                 }
             });
     },
-    getNewErrors: function(template, result){
+    getNewErrors: function(rep1, rep2, template, result){
         $.ajax ({
                 dataType: "json",
                 type: "POST",
@@ -46,12 +46,9 @@ var reportJS = {
         var i = 0;
         for ( ; i < data.length; i++ ) {
             inner += template
-            .replace( /\{\{name\}\}/, data[i].scan_name )
-            .replace( /\{\{id\}\}/, data[i].scan_id );
-            //.replace( /\{\{date\}\}/, data[i].date )
-            //.replace( /\{\{numErr\}\}/, data[i].number_errors )
-            //.replace( /\{\{numPages\}\}/, data[i].pages_scanned );
-            //.replace( /\{\{date\}\}/, data[i].date ) 
+            .replace(/\{\{url\}\}/, data[i].url)
+            .replace(/\{\{type\}\}/, data[i].status_code)
+            .replace(/\{\{state\}\}/, data[i].state)
         }
         $("#table-loading").hide();
         result.innerHTML = inner;
@@ -61,12 +58,10 @@ var reportJS = {
         var i = 0;
         for ( ; i < data.length; i++ ) {
             inner += template
-            .replace( /\{\{name\}\}/, data[i].scan_name )
-            .replace( /\{\{id\}\}/, data[i].scan_id );
-            //.replace( /\{\{date\}\}/, data[i].date )
-            //.replace( /\{\{numErr\}\}/, data[i].number_errors )
-            //.replace( /\{\{numPages\}\}/, data[i].pages_scanned );
-            //.replace( /\{\{date\}\}/, data[i].date ) 
+            .replace( /\{\{url\}\}/, data[i].url)
+            .replace( /\{\{domain\}\}/, data[i].domain)
+            .replace( /\{\{type\}\}/, data[i].status_code)
+            .replace( /\{\{message\}\}/, data[i].status_code);
         }
         $("#table-loading").hide();
         result.innerHTML = inner;
