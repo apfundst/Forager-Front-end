@@ -222,8 +222,30 @@ var allReports = {
                     
                 }
             });
-    }
+    },
     //
+    showReport: function(template, result, id){
+        $.ajax ({
+                dataType: "json",
+                type: "POST",
+                url: "includes/get_report.php",
+                data: {scanId: id},
+                success: function(data) {
+                    
+                        console.log("success");
+                        console.log(data);
+                        
+                        Render.renderReportErrors(data, template, result);
+
+                       
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    console.log("fail");
+
+                    
+                }
+            });
+    }
 }
 var Render = {
     renderExistingReports: function(data, template, result){
@@ -236,7 +258,6 @@ var Render = {
             .replace( /\{\{date\}\}/, data[i].date )
             .replace( /\{\{numErr\}\}/, data[i].number_errors )
             .replace( /\{\{numPages\}\}/, data[i].pages_scanned );
-            //.replace( /\{\{date\}\}/, data[i].date ) 
         }
         $("#table-loading").hide();
         result.innerHTML = inner;
@@ -250,10 +271,6 @@ var Render = {
             inner += template
             .replace( /\{\{name\}\}/, data[i].scan_name )
             .replace( /\{\{id\}\}/, data[i].scan_id );
-            //.replace( /\{\{date\}\}/, data[i].date )
-            //.replace( /\{\{numErr\}\}/, data[i].number_errors )
-            //.replace( /\{\{numPages\}\}/, data[i].pages_scanned );
-            //.replace( /\{\{date\}\}/, data[i].date ) 
         }
         $("#table-loading").hide();
         result.innerHTML = inner;
@@ -268,7 +285,6 @@ var Render = {
             .replace( /\{\{date\}\}/, data[i].date )
             .replace( /\{\{errors\}\}/, data[i].number_errors )
             .replace( /\{\{numPages\}\}/, data[i].pages_scanned );
-            //.replace( /\{\{date\}\}/, data[i].date ) 
         }
         result.innerHTML = inner;
 
@@ -278,16 +294,17 @@ var Render = {
         var i = 0;
         for ( ; i < data.length; i++ ) {
             inner += template
-            .replace( /\{\{url\}\}/, data[i].source + data[i].link )
-            .replace( /\{\{type\}\}/, data[i].type)
-            //.replace( /\{\{date\}\}/, data[i].date )
-            //.replace( /\{\{numErr\}\}/, data[i].number_errors ) 
-            //.replace( /\{\{numPages\}\}/, data[i].pages_scanned );
-            //.replace( /\{\{date\}\}/, data[i].date ) 
+            .replace( /\{\{url\}\}/, data[i].url)
+            .replace( /\{\{type\}\}/, data[i].status_code)
+            .replace( /\{\{message\}\}/, data[i].status_code_message )
+            .replace( /\{\{domain\}\}/, data[i].domain);
         }
+        $("#table-loading").hide();
         result.innerHTML = inner;
+        window.location.search += '#item1';
 
     }
+
 }
 
 var reportViewer = {
@@ -394,5 +411,9 @@ var report = {
     }
 } 
 
+/*var call = {
+    ajax: function(data, type, url, ){
 
+    }
+}*/
     

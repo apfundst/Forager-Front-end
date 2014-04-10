@@ -41,7 +41,9 @@
 </script>
   
   
-    <br>
+    <br><center>
+    <img id="table-loading" src="img/ajax-loader.gif" />
+    </center>
     <div class="report_menu">
     <h3>Select Report View:</h3>
     <ul class="report_menu_list">
@@ -66,7 +68,7 @@
       
       
       
-
+ 
       <div class="items">
         <div id="item1">
         <table id="goups_background">
@@ -91,119 +93,7 @@
           </tr>
             </thead>
             <tbody id="error_display">
-            <tr class="tr_clickable" id="goups_background">
-          <td id="main_data">{{url}}
-          </td>
-          
-          <td id="side_data_s">{{type}}
-          </td>
-        </tr>
-        <tr class="tr_clickable" id="goups_background">
-          <td id="main_data">{{url}}
-          </td>
-          
-          <td id="side_data_s">{{type}}
-          </td>
-        </tr>
-        <tr class="tr_clickable" id="goups_background">
-          <td id="main_data">{{url}}
-          </td>
-          
-          <td id="side_data_s">{{type}}
-          </td>
-        </tr>
-        <tr class="tr_clickable" id="goups_background">
-          <td id="main_data">{{url}}
-          </td>
-          
-          <td id="side_data_s">{{type}}
-          </td>
-        </tr>
-        <tr class="tr_clickable" id="goups_background">
-          <td id="main_data">{{url}}
-          </td>
-          
-          <td id="side_data_s">{{type}}
-          </td>
-        </tr>
-        <tr class="tr_clickable" id="goups_background">
-          <td id="main_data">{{url}}
-          </td>
-          
-          <td id="side_data_s">{{type}}
-          </td>
-        </tr>
-        <tr class="tr_clickable" id="goups_background">
-          <td id="main_data">{{url}}
-          </td>
-          
-          <td id="side_data_s">{{type}}
-          </td>
-        </tr>
-        <tr class="tr_clickable" id="goups_background">
-          <td id="main_data">{{url}}
-          </td>
-          
-          <td id="side_data_s">{{type}}
-          </td>
-        </tr>
-        <tr class="tr_clickable" id="goups_background">
-          <td id="main_data">{{url}}
-          </td>
-          
-          <td id="side_data_s">{{type}}
-          </td>
-        </tr>
-        <tr class="tr_clickable" id="goups_background">
-          <td id="main_data">{{url}}
-          </td>
-          
-          <td id="side_data_s">{{type}}
-          </td>
-        </tr>
-        <tr class="tr_clickable" id="goups_background">
-          <td id="main_data">{{url}}
-          </td>
-          
-          <td id="side_data_s">{{type}}
-          </td>
-        </tr>
-        <tr class="tr_clickable" id="goups_background">
-          <td id="main_data">{{url}}
-          </td>
-          
-          <td id="side_data_s">{{type}}
-          </td>
-        </tr>
-        <tr class="tr_clickable" id="goups_background">
-          <td id="main_data">{{url}}
-          </td>
-          
-          <td id="side_data_s">{{type}}
-          </td>
-        </tr>
-        <tr class="tr_clickable" id="goups_background">
-          <td id="main_data">{{url}}
-          </td>
-          
-          <td id="side_data_s">{{type}}
-          </td>
-        </tr>
-        <tr class="tr_clickable" id="goups_background">
-          <td id="main_data">{{url}}
-          </td>
-          
-          <td id="side_data_s">{{type}}
-          </td>
-        </tr>
-        <tr class="tr_clickable" id="goups_background">
-          <td id="main_data">{{url}}
-          </td>
-          
-          <td id="side_data_s">{{type}}
-          </td>
-        </tr>
-
+            
 
               
             
@@ -273,11 +163,14 @@
   </div>
   <script type="text/javascript">
   $(document).ready(function(){
-    $.ajax({url: 'http://www.spsu.edu', success: function(data) { alert(data); console.log(success); } });
+    
     Session.check();
     var str = "Logged in as: " + Session.name;
     $("#user_logged_in").html(str);
     console.log(getFromUrl("id"));
+    var rTable = document.querySelector('#error_display');
+    var tableTempl = document.querySelector('#scan_table');
+    allReports.showReport(tableTempl, rTable, getFromUrl"id");
 
   });
   $('.tree > li a').click(function() {
