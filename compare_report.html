@@ -4,6 +4,7 @@
 <link rel="stylesheet" type="text/css" href="css/dashboard.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.0.js"></script>
 <script type="text/javascript" src="js/session.js"></script>
+<script type="text/javascript" src="/jquery/table_sorter/jquery.tablesorter.js"></script> 
 
 
 </head>
@@ -41,7 +42,7 @@
 <div class="items">
   <div id="item1">
 
-    <table id="goups_background">
+    <table id="goups_background" cellspacing="1" class="tablesorter">
         <thead>
           <tr class="tr_non_clickable"id="goups_background">
             <th id="main_data" class="tabel_title" style="color:#FFC425;">
@@ -126,6 +127,7 @@
       reportJS.getNewErrors(report_id1, report_id2, new_errors_template, new_table);
       //console.log(reportTableData);
       //Render.renderExistingReports(reportTableData, reportTableTmpl, reportTableResult);
+      $("#groups_background").tablesorter( {sortList: [[0,0]]} );
     });
 </script>
 
