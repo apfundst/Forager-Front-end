@@ -5,6 +5,8 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.0.js"></script>
 <script type="text/javascript" src="js/session.js"></script>
 <script type="text/javascript" src="js/compare_submit.js"></script>
+<script type="text/javascript" src="/jquery/table_sorter/jquery.tablesorter.js"></script> 
+
 </head>
 <body>
 
@@ -83,6 +85,7 @@
             Compare.submit(drop1, drop2);
           }
         });
+       $("#groups_background").tablesorter( {sortList: [[0,0]]} );
     </script>
 
     </form>
@@ -98,7 +101,7 @@
 <!--<button id="log_session">log session</button>
 <button id="log_cookie">log cookie</button>-->
 
-    <table id="goups_background">
+    <table id="goups_background" class="tablesorter">
       <thead>
         <tr class="tr_non_clickable"id="goups_background">
 		<th id="main_data" class="tabel_title" style="color:#FFC425;">
