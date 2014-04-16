@@ -57,22 +57,23 @@
     <div class="row">
     
     <div class="dropdown">
-    <form>
+    <form id="compare_report">
       <select id="select_dropdown1">
 
       </select>
       <select id="select_dropdown2">
 
       </select>
-      <button id="compare_reports_button" class="menu">Compare Reports</button>
+      <button type="submit" id="compare_reports_button" class="menu">Compare Reports</button>
 
       </form>
       <!--on click, check if 2 things are selected, then calls a function to submit it to a php page-->
     </div>
 
     <script type="text/javascript">
-       $("#compare_reports_button").click(function(event){
+       $("#compare_report").on("submit", function(event){
           //create two variables to store dropdown 1&2
+          event.preventDefault();
           var drop1 = $("#select_dropdown1").val();
           var drop2 = $("#select_dropdown2").val();
           //check that both variables are not null??
@@ -83,7 +84,7 @@
           }
           else{
             //send to compare_submit.js
-            Compare.submit(drop1, drop2);
+            Compare.Submit(drop1, drop2);
           }
         });
       
