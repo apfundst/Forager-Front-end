@@ -102,31 +102,57 @@
           </table>
           </div>
         <div id="item2">    
-          <ul class="tree">
-            <li>
-                <a>domain</a>
-                <ul>
-                    <li><a>pages</a>
-                <ul>
-                    <li>errors</li>  
-                    <li>errors</li>  
-                    <li>Aerr</li>  
-                    <li>error</li>            
-                </ul>   </li>  
-                    <li>errors</li>  
-                    <li>errors</li>  
-                    <li>errors</li>            
-                </ul>                
-            </li>
-            
-            <li>
-                <a>domain</a>
-                <ul>
-                    <li>page</li>  
-                    <li>page</li>      
-                </ul>                
-            </li>
-        </ul>
+          <ul class="collapse">
+  <li ><h2> heyo #pages, #errors, %with errors</h2>
+    <div class="content">
+      
+      <ul >
+        <li ><h2> <table>
+        <thead>
+                  <tr class="tr_non_clickable"id="goups_background">
+
+              <th id="main_data" class="tabel_title" >
+              # Pages
+
+              </th>
+              <th id="side_data_l" class="tabel_title">
+              # Errors
+              </th>
+
+              <th id="side_data_s" class="tabel_title">
+                % pages w/ Error
+              </th>
+              
+
+              </tr>
+                </thead></table></h2>
+    
+    </li>
+  <li ><h2> heyo</h2>
+    
+    </li>
+  <li ><h2> heyo</h2>
+   
+    </li>
+      </ul>
+  
+      
+    </div>
+    </li>
+  <li ><h2> heyo</h2>
+    <div class="content">
+  
+      
+    </div>
+    </li>
+  <li ><h2> heyo</h2>
+    <div class="content">
+  
+     
+  
+    </div>
+    </li>
+</ul>
         
         </div>
         <div id="default" > <h1>Select a report type above</h1></div>
@@ -173,9 +199,10 @@
     allReports.showReport(tableTempl, rTable, getFromUrl("id"));
 
   });
-  $('.tree > li a').click(function() {
-    $(this).parent().find('ul').toggle();
-});
+  $('.collapse > li h2').click(function() {
+    $(this).parent().find('div').toggle();
+  $(this).toggleClass("special");
+  });
   $("#log_out").click(function(event){
     Session.logout();
   });
@@ -220,6 +247,12 @@
           <td id="side_data_l">{{message}}
           </td>
         </tr>
+  </script>
+  <script type="text/javascript" id="domain_table">
+    <ul class="tree">
+      <li ><h2>{{domain}}</h2>
+        <div class="content">
+  
   </script>
   <link href='http://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
   </body>
