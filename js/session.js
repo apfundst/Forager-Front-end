@@ -250,7 +250,7 @@ var allReports = {
         $.ajax ({
                 dataType: "json",
                 type: "POST",
-                url: "includes/get_report.php",
+                url: "includes/get_domains.php",
                 data: {scanId: id},
                 success: function(data) {
                     
@@ -273,7 +273,7 @@ var allReports = {
         $.ajax ({
                 dataType: "json",
                 type: "POST",
-                url: "includes/get_report.php",
+                url: "includes/get_pages.php",
                 data: {domain: domainName},
                 success: function(data) {
                     
@@ -351,8 +351,9 @@ var Render = {
         window.location.search += '#item1';
 
     },
-    renderDomains: function(data, template, innerTemp, result){
+    renderDomains: function(data, template, result){
         var inner = "";
+        innerTemp = "<li><h2><a href=\"{{url}}\">{{url}}</a> {{numErr}}</h2></li>"
         var i = 0;
         var j = 0;
         for ( ; i < data.length; i++ ) {
