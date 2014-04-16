@@ -75,7 +75,7 @@ table[data-sortable].sortable-theme-bootstrap tbody td {
 table[data-sortable].sortable-theme-bootstrap th[data-sorted="true"] {
   color: #939ba1;
   background: #ffd972;
-  border-bottom-color: #bce8f1;
+  border-bottom-color: #333333;
 }
 /* line 23, ../sass/sortable-theme-bootstrap.sass */
 table[data-sortable].sortable-theme-bootstrap th[data-sorted="true"][data-sorted-direction="descending"]:after {
