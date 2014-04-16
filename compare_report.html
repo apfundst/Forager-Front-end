@@ -35,7 +35,7 @@
 <center><p>
   <a class="tab" href="#item1">Similar Errors</a>
   <a class="tab" href="#item2">New Errors</a>
-  <a class="tab" href="#item3">Graph Report</a>
+  <a class="tab" href="#item3">Resolved Errors</a>
   </p>
 <hr></center> 
 
@@ -93,8 +93,29 @@
   </div>
 
   <div id="item3">
-    <table id="goups_background">
-	   graph stuff goes here
+    <table id="goups_background" class="sortable-theme-spsu" data-sortable>
+      <thead>
+        <tr class="tr_non_clickable"id="goups_background">
+        <th id="main_data" class="tabel_title" style="color:#FFC425;">
+        URL
+        </th>
+
+        <th id="side_data_1" class="tabel_title">
+        Domain
+        </th>
+
+        <th id="side_data_2" class="tabel_title">
+        Error Type
+        </th>
+
+        <th id="side_data_3" class="tabel_title">
+        Error Message
+        </th>
+        </tr>
+      </thead>
+        <tbody id="resolved_table">
+          
+        </tbody>        
     </table>
   </div>
   
