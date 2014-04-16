@@ -245,6 +245,53 @@ var allReports = {
                     
                 }
             });
+    },
+    getDomains: function(template, result, id){
+        $.ajax ({
+                dataType: "json",
+                type: "POST",
+                url: "includes/get_report.php",
+                data: {scanId: id},
+                success: function(data) {
+                    
+                        console.log("success");
+                        console.log(data);
+                        
+                        renderDomains(dats, template, result);
+                        
+
+                       
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    console.log("fail");
+
+                    
+                }
+            });
+    },
+    getPages: function(domainName){
+        $.ajax ({
+                dataType: "json",
+                type: "POST",
+                url: "includes/get_report.php",
+                data: {domain: domainName},
+                success: function(data) {
+                    
+                        console.log("success");
+                        console.log(data);
+                        
+                        return data;
+                        
+
+                       
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    console.log("fail");
+
+
+                    
+                }
+            });
     }
 }
 var Render = {
@@ -298,6 +345,33 @@ var Render = {
             .replace( /\{\{type\}\}/, data[i].status_code)
             .replace( /\{\{message\}\}/, data[i].status_code_message )
             .replace( /\{\{domain\}\}/, data[i].domain);
+        }
+        $("#table-loading").hide();
+        result.innerHTML = inner;
+        window.location.search += '#item1';
+
+    },
+    renderDomains: function(data, template, innerTemp, result){
+        var inner = "";
+        var i = 0;
+        var j = 0;
+        for ( ; i < data.length; i++ ) {
+            var domainPages = "";
+            var domainData = allReports.getPages(data[i].domain);
+            j = 0;
+            for( ; j < domainData.length; j++){
+                domainPages += innerTemp
+                .replace( /\{\{url\}\}/, domainData[i].url)
+                .replace(/\{\{numErr\}\}/, domainData[i].number_errors);
+
+            }
+            inner += template
+            .replace( /\{\{domain\}\}/, data[i].domain)
+            .replace( /\{\{numpages\}\}/, data[i].status_code)
+            .replace( /\{\{#errors\}\}/, data[i].status_code_message )
+            .replace( /\{\{%errors\}\}/, data[i].domain)
+            .replace( /\{\{pages_content\}\}/, domainPages )
+
         }
         $("#table-loading").hide();
         result.innerHTML = inner;

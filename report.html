@@ -249,9 +249,13 @@
         </tr>
   </script>
   <script type="text/javascript" id="domain_table">
-    <ul class="tree">
-      <li ><h2>{{domain}}</h2>
-        <div class="content">
+   <li>
+   <h2> {{domain}} {{numpages}}, {{#errors}}, {{%errors}}</h2>
+      <div class="content">
+        {{pages_content}}
+      </div>
+    
+    </li>
   
   </script>
   <link href='http://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
