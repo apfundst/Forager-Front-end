@@ -368,10 +368,10 @@ var Render = {
             }
             inner += template
             .replace( /\{\{domain\}\}/, data[i].domain)
-            .replace( /\{\{numpages\}\}/, data[i].status_code)
-            .replace( /\{\{#errors\}\}/, data[i].status_code_message )
-            .replace( /\{\{%errors\}\}/, data[i].domain)
-            .replace( /\{\{pages_content\}\}/, domainPages )
+            .replace( /\{\{numpages\}\}/, data[i].number_pages)
+            .replace( /\{\{#errors\}\}/, data[i].number_errors)
+            //.replace( /\{\{%errors\}\}/, data[i].domain)
+            .replace( /\{\{pages_content\}\}/, domainPages );
 
         }
         $("#table-loading").hide();
