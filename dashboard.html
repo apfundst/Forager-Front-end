@@ -5,7 +5,7 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.0.js"></script>
 <script type="text/javascript" src="js/session.js"></script>
 <script type="text/javascript" src="js/compare_submit.js"></script>
-<script type="text/javascript" src="/jquery/table_sorter/jquery.tablesorter.js"></script> 
+<script type="text/javascript" src="jquery/table_sorter/jquery.tablesorter.js"></script> 
 
 </head>
 <body>
@@ -85,7 +85,7 @@
             Compare.submit(drop1, drop2);
           }
         });
-       $("#groups_background").tablesorter( {sortList: [[0,0]]} );
+      
     </script>
 
     </form>
@@ -154,7 +154,9 @@
 
     //console.log(reportTableData);
     //Render.renderExistingReports(reportTableData, reportTableTmpl, reportTableResult);
+    $("#goups_background").tablesorter( {sortList: [[0,0]]} );
   });
+
 
   $( "#login_form" ).on( "submit", function( event ) {
   event.preventDefault();
