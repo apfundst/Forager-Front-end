@@ -101,17 +101,13 @@
               
           </table>
           </div>
-        <div id="item2">    
-          <ul class="collapse">
-            <li ><h2> heyo #pages, #errors, %with errors</h2>
-              <div class="content">
-                
-      <ul class="collapse">
+        <div id="item2"> 
+        <ul class="collapse">
   <li ><h2>Domain<span style="text-align:right;"> #pages, #errors, %with errors</span></h2>
     <div class="content">
-      <div id="header"><form><input id="domain1" type="text"></form></div>
+      <form>Search Pages:<input id="domain1" class="search_bar" type="text"></form>
       
-      <ul id="list" class="collapse2">
+      <ul id="list">
         <li><h2> 
           <a># Pages % pages w/ Error</a></h2>
          <ul>
@@ -179,7 +175,8 @@
     <div class="content">
     </div>
     </li>
-</ul>
+</ul>   
+          </div>
         <div id="default" > <h1>Select a report type above</h1></div>
       </div>
           </div>
@@ -204,10 +201,11 @@
     allReports.showReport(tableTempl, rTable, getFromUrl("id"));
     var rList = document.querySelector('#reports_menu');
     allReports.getReportsList(rList);
+    listFilter( $("#list"), $("#domain1"));
 
   });
   $('.collapse > li h2').click(function() {
-    $(this).parent().find('div').toggle();
+    $(this).parent().find('div').first().toggle();
   $(this).toggleClass("special");
   });
   $("#log_out").click(function(event){
