@@ -34,6 +34,7 @@
     
   </div>  
   <div class="panel_body">
+  <!--TODO: display pages scanned, num errors, run time, average errors per page  -->
   <div class="panel_heading">
     Errors
   </div>
@@ -55,11 +56,10 @@
         </li>
       </ul>
     <h3>View another report:</h3>
-      <ul class="report_menu_list">
-           <li class="tab"> <a href="#">Volvo youtube strippers</a></li>
-            <li class="tab"><a href="#">Saab</a></li>
-            <li class="tab"><a href="#">Fiat</a></li>
-            <li class="tab"><a href="#">Audi</a></li>
+    <img id="yolo-table-loading" src="img/ajax-loader.gif" />
+      <ul id="reports_menu" class="report_menu_list">
+           
+            
           </ul>
       <!--TODO: TASK 2 -->
 
@@ -157,27 +157,6 @@
         </div>
         <div id="default" > <h1>Select a report type above</h1></div>
       </div>
-
-          <!--<table id="goups_background">
-            <thead>
-              <tr class="tr_non_clickable"id="goups_background">
-          <th id="main_data" class="tabel_title" style="color:#FFC425;">
-          URL
-
-          </th>
-
-          <th id="side_data_s" class="tabel_title">
-          Error Type
-          </th>
-          </tr>
-            </thead>
-            <tbody id="error_display">
-            
-              
-            
-            </tbody>
-              
-          </table>-->
           </div>
         
      
@@ -191,12 +170,15 @@
   $(document).ready(function(){
     
     Session.check();
+
     var str = "Logged in as: " + Session.name;
     $("#user_logged_in").html(str);
     console.log(getFromUrl("id"));
     var rTable = document.querySelector('#error_display');
     var tableTempl = document.querySelector('#scan_table');
     allReports.showReport(tableTempl, rTable, getFromUrl("id"));
+    var rList = document.querySelector('#reports_menu');
+    allReports.getReportsList(rList);
 
   });
   $('.collapse > li h2').click(function() {

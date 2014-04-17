@@ -189,18 +189,31 @@ var allReports = {
                         console.log("success");
                         console.log(data);
                         
-                        Render.renderExistingReports(data, template,result);
-
-                       
+                        Render.renderExistingReports(data, template,result);       
                 },
                 error: function (xhr, textStatus, errorThrown) {
-                    console.log("fail");
-
-                    
+                    console.log("fail"); 
                 }
             });
     },
-    //peter
+    getReportsList: function(result){
+        $.ajax ({
+                dataType: "json",
+                type: "POST",
+                url: "includes/get_reports.php",
+                data: {userId: Session.userId},
+                success: function(data) {
+                    
+                        console.log("success");
+                        console.log(data);
+                        
+                        Render.renderReportsList(data,result);       
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    console.log("fail"); 
+                }
+            });
+    },
     getCompare: function(template, result){
         $.ajax ({
                 dataType: "json",
@@ -287,9 +300,7 @@ var allReports = {
                 },
                 error: function (xhr, textStatus, errorThrown) {
                     console.log("fail");
-
-
-                    
+  
                 }
             });
     }
@@ -353,7 +364,7 @@ var Render = {
     },
     renderDomains: function(data, template, result){
         var inner = "";
-        innerTemp = "<li><h2><a href=\"{{url}}\">{{url}}</a> {{numErr}}</h2></li>"
+        var innerTemp = "<li><h2><a href=\"{{url}}\">{{url}}</a> {{numErr}}</h2></li>";
         var i = 0;
         var j = 0;
         for ( ; i < data.length; i++ ) {
@@ -378,7 +389,22 @@ var Render = {
         result.innerHTML = inner;
         window.location.search += '#item1';
 
+    },
+    renderReportsList: function(data, result){
+        var inner = "";
+        var innerTemp = "<li class=\"tab\"> <a href=\"report.html?id={{id}}\">{{report}}</a></li>";
+        var i = 0;
+        for ( ; i < data.length; i++ ) {
+            inner += innerTemp
+            .replace( /\{\{id\}\}/, data[i].scan_id)
+            .replace( /\{\{report\}\}/, data[i].scan_name);
+        }
+        $("#yolo-table-loading").hide();
+        result.innerHTML = inner;
+        //window.location.search += '#item1';
+
     }
+
 
 }
 
