@@ -32,12 +32,31 @@ var reportJS = {
                         console.log(data);
                         
 
-                        compareJS.renderNewErrors(ExistingReports()data, template,result);
+                        compareJS.renderTableErrors(ExistingReports()data, template,result);
    
                 },
                 error: function (xhr, textStatus, errorThrown) {
                     console.log("fail");
   
+                }
+            });
+    },
+    getResolvedErrors: function(rep1, rep2, template, result){
+        $.ajax ({
+                dataType: "json",
+                type: "POST",
+                url: "includes/resolved_errors.php",
+                data: {rp1: rep2, rp2:rep1},
+                success: function(data) {
+                    
+                        console.log("success");
+                        console.log(data);
+                        
+                        compareJS.renderTableErrors(ExistingReports()data, template,result);
+   
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    console.log("fail");
                 }
             });
     },
@@ -53,7 +72,7 @@ var reportJS = {
         $("#table-loading").hide();
         result.innerHTML = inner;
     },
-    renderNewErrors: function(data, template, result){
+    renderTableErrors: function(data, template, result){
         var inner = "";
         var i = 0;
         for ( ; i < data.length; i++ ) {
