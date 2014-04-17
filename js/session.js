@@ -517,4 +517,16 @@ var report = {
 
     }
 }*/
-    
+function listFilter(list, input) {
+  $(input).change( function () {
+    var filter = $(this).val();
+    if (filter) {
+      $(list).find("h2:not(:contains(" + filter + "))").parent().slideUp();
+      $(list).find("h2:contains(" + filter + ")").parent().slideDown();
+    } else {
+      $(list).find("li").slideDown();
+    }
+  }).keyup( function () {
+    $(this).change();
+  });
+}
