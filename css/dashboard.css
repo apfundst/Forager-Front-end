@@ -308,7 +308,7 @@ div.items div:target {display: block}
   width: 10%;
   padding-right: 5%;
   vertical-align: top;
-  background-color: #ddd;
+  /*background-color: #ddd;*/
   min-width: 180px;
 }
 @media(max-width: 1250px){

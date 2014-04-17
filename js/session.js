@@ -39,7 +39,9 @@ var Session = {
     },
     check: function(){
         var checker = dataStore.get("user");
-        if(checker.name === null){
+        if(checker === -1 ){
+            window.location = "login.html";
+        }else if(checker.name === null){
             window.location = "login.html";
         }else{
             Session.setInfo(checker);
@@ -69,7 +71,7 @@ var dataStore = {
   get: function(key) {
     var value = localStorage.getItem(key);
 
-    if (!value) {return;}
+    if (!value) {return -1;}
 
     // assume it is an object that has been stringified
     if (value[0] === "{") {
