@@ -200,9 +200,9 @@
     var rTable = document.querySelector('#error_display');
     var tableTempl = document.querySelector('#scan_table');
      var detailsPos = document.querySelector('#report_info');
-    var detailsTempl = document.querySelector('#report_details');
+    var detailsTempl = document.querySelector('#scan_details');
     allReports.showReportErrors(tableTempl, rTable, getFromUrl("id"));
-    allReports.showReportDetails(detailsTempl, detailsPos, getFromUrl("id"));
+    //allReports.showReportDetails(detailsTempl, detailsPos, getFromUrl("id"));
     var rList = document.querySelector('#reports_menu');
     allReports.getReportsList(rList);
     listFilter( $("#list"), $("#domain1"));

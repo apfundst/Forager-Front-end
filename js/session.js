@@ -259,6 +259,7 @@ var allReports = {
                 },
                 error: function (xhr, textStatus, errorThrown) {
                     console.log("fail");
+                    console.log(errorThrown);
 
                     
                 }
@@ -364,16 +365,16 @@ var Render = {
     },//
     renderReportDetails: function(data, template, result){
         var inner = "";
-        var i = 0;
-        for ( ; i < data.length; i++ ) {
+        //var i = 0;
+        //for ( ; i < data.length; i++ ) {
             inner += template
-            .replace( /\{\{name\}\}/, data[i].scan_name )
-            .replace( /\{\{time\}\}/, data[i].start_time )
-            .replace( /\{\{date\}\}/, data[i].date )
-            .replace( /\{\{errors\}\}/, data[i].number_errors )
-            .replace( /\{\{avgErr\}\}/, data[i].avg_errors_per_page )
-            .replace( /\{\{pages\}\}/, data[i].pages_scanned );
-        }
+            .replace( /\{\{name\}\}/, data["0"])
+            .replace( /\{\{time\}\}/, data["3"])
+            .replace( /\{\{date\}\}/, data["1"] )
+            .replace( /\{\{errors\}\}/, data["5"] )
+            .replace( /\{\{avgErr\}\}/, data["6"] )
+            .replace( /\{\{pages\}\}/, data["4"] );
+        //}
         result.innerHTML = inner;
 
     },
@@ -384,8 +385,8 @@ var Render = {
             inner += template
             .replace( /\{\{url\}\}/, data[i].url)
             .replace( /\{\{type\}\}/, data[i].status_code)
-            .replace( /\{\{message\}\}/, data[i].status_code_message )
-            .replace( /\{\{domain\}\}/, data[i].domain);
+            .replace( /\{\{message\}\}/, data[i].status_code_type );
+            //.replace( /\{\{domain\}\}/, data[i].domain);
         }
         $("#table-loading").hide();
         result.innerHTML = inner;
