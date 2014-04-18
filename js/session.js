@@ -239,16 +239,40 @@ var allReports = {
             });
     },
     //
-    showReport: function(template, result, id){
+    showReportDetails: function(template, result, id){
+        $.ajax ({
+                dataType: "json",
+                type: "POST",
+                url: "includes/get_report.php",
+                data: {scanId: id, funcId: 1},
+                success: function(data) {
+                    //returns
+                    // $scan_name, $start_time,$stop_time, $elapsed_time, 
+                    //$pages_scanned, $number_errors, $avg_errors_per_page);
+
+                        console.log("success");
+                        console.log(data);
+                        
+                        Render.renderReportDetails(data, template, result);
+
+                       
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    console.log("fail");
+
+                    
+                }
+            });
+    },
+    showReportErrors: function(template, result, id){
         $.ajax ({
                 dataType: "json",
                 type: "POST",
                 url: "includes/get_report.php",
                 data: {scanId: id, funcId: 2},
                 success: function(data) {
-                    //returns
-                    // $scan_name, $start_time,$stop_time, $elapsed_time, 
-                    //$pages_scanned, $number_errors, $avg_errors_per_page);
+                    //returns list of scan errors
+                    
 
                         console.log("success");
                         console.log(data);
@@ -344,10 +368,11 @@ var Render = {
         for ( ; i < data.length; i++ ) {
             inner += template
             .replace( /\{\{name\}\}/, data[i].scan_name )
-            .replace( /\{\{id\}\}/, data[i].scan_id )
+            .replace( /\{\{time\}\}/, data[i].start_time )
             .replace( /\{\{date\}\}/, data[i].date )
             .replace( /\{\{errors\}\}/, data[i].number_errors )
-            .replace( /\{\{numPages\}\}/, data[i].pages_scanned );
+            .replace( /\{\{avgErr\}\}/, data[i].avg_errors_per_page )
+            .replace( /\{\{pages\}\}/, data[i].pages_scanned );
         }
         result.innerHTML = inner;
 

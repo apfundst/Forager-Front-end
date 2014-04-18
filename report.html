@@ -199,7 +199,10 @@
     console.log(getFromUrl("id"));
     var rTable = document.querySelector('#error_display');
     var tableTempl = document.querySelector('#scan_table');
-    allReports.showReport(tableTempl, rTable, getFromUrl("id"));
+     var detailsPos = document.querySelector('#report_info');
+    var detailsTempl = document.querySelector('#report_details');
+    allReports.showReportErrors(tableTempl, rTable, getFromUrl("id"));
+    allReports.showReportDetails(detailsTempl, detailsPos, getFromUrl("id"));
     var rList = document.querySelector('#reports_menu');
     allReports.getReportsList(rList);
     listFilter( $("#list"), $("#domain1"));
@@ -225,6 +228,7 @@
         </tr>
   </script>
   <script type="text/javascript" id="scan_details">
+  <center><h1>{{name}}</h1></center>
     <table id="groups_background" id="report_details">
         <tr class="tr_non_clickable" id ="groups_background">
             <th id= "side_data_l" class="tabel_title" style="color:#FFC425;">
@@ -233,14 +237,18 @@
             <th id= "side_data_l" class="tabel_title" style="color:#FFC425;">
             Scan Time: {{time}}
             </th>
+            
             <th id= "side_data_l" class="tabel_title" style="color:#FFC425;">
             Scanned Pages: {{pages}}
             </th>
             <th id= "side_data_l" class="tabel_title" style="color:#FFC425;">
             Total Errors: {{errors}}
             </th>
-          </tr>   
-            </table>
+            <th id= "side_data_l" class="tabel_title" style="color:#FFC425;">
+            Average errors per Page: {{avgErr}}
+            </th>
+        </tr>   
+    </table>
   </script>
   <script type="text/javascript" id="scan_table">
   <tr class="tr_clickable" id="goups_background">
