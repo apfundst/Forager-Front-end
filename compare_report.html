@@ -6,6 +6,8 @@
 <script type="text/javascript" src="js/session.js"></script>
 <script type="text/javascript" src="sortableplugin/js/sortable.js"></script>
 <link rel="stylesheet" type="text/css" href="sortableplugin/css/sortable-theme-spsu.css">
+<script type="text/javascript" src="listjs/list.js"></script>
+<link rel="stylesheet" type="text/css" href="listjs/list.css">
 
 </head>
 <body>
@@ -28,9 +30,41 @@
   <div class="panel_body" id="report_info">
   </div>  
   <div class="panel_body">
-  <div class="panel_heading"> Compare Reports </div>
-<script type="text/javascript">
-</script>
+  <div class="panel_heading">List View</div>
+  <div class="panel_body"> 
+
+    <div id="users">
+      <input class="search" placeholder="Search" />
+      <button class="sort" data-sort="name">
+        Sort
+      </button>
+
+      <ul class="list">
+        <li>
+          <h3 class="name">Jonny Stromberg</h3>
+          <p class="born">1986</p>
+        </li>
+        <li>
+          <h3 class="name">Jonas Arnklint</h3>
+          <p class="born">1985</p>
+        </li>
+        <li>
+          <h3 class="name">Martina Elm</h3>
+          <p class="born">1986</p>
+        </li>
+        <li>
+          <h3 class="name">Gustaf Lindqvist</h3>
+          <p class="born">1983</p>
+        </li>
+      </ul>
+
+    </div>
+
+  </div>
+  <!-- text-align:center;}
+      {text-align:right;-->
+<br>
+<div class="panel_heading">Data Tables</div>
 <br>
 <center>
   <p>
@@ -42,6 +76,32 @@
 
 <div class="items">
   <div id="item1">
+    <div id="users1">
+      <input class="search" placeholder="Search" />
+      <button class="sort" data-sort="name">
+        Sort
+      </button>
+
+      <ul class="list">
+        <li>
+          <h3 class="name">Jonny Stromberg</h3>
+          <p class="born">1986</p>
+        </li>
+        <li>
+          <h3 class="name">Jonas Arnklint</h3>
+          <p class="born">1985</p>
+        </li>
+        <li>
+          <h3 class="name">Martina Elm</h3>
+          <p class="born">1986</p>
+        </li>
+        <li>
+          <h3 class="name">Gustaf Lindqvist</h3>
+          <p class="born">1983</p>
+        </li>
+      </ul>
+
+    </div>
 
     <table id="goups_background" class="sortable-theme-spsu" style="margin: 0 auto;" data-sortable>
         <thead>
@@ -67,6 +127,33 @@
   </div>
 
   <div id="item2">
+    <div id="users2">
+      <input class="search" placeholder="Search" />
+      <button class="sort" data-sort="name">
+        Sort
+      </button>
+
+      <ul class="list">
+        <li>
+          <h3 class="name">Jonny Stromberg</h3>
+          <p class="born">1986</p>
+        </li>
+        <li>
+          <h3 class="name">Jonas Arnklint</h3>
+          <p class="born">1985</p>
+        </li>
+        <li>
+          <h3 class="name">Martina Elm</h3>
+          <p class="born">1986</p>
+        </li>
+        <li>
+          <h3 class="name">Gustaf Lindqvist</h3>
+          <p class="born">1983</p>
+        </li>
+      </ul>
+
+    </div>
+    <!--
     <table id="goups_background" class="sortable-theme-spsu" style="margin: 0 auto;" data-sortable>
       <thead>
         <tr class="tr_non_clickable"id="goups_background">
@@ -91,9 +178,37 @@
           
         </tbody>        
     </table>
+  -->
   </div>
 
   <div id="item3">
+    <div id="users3">
+      <input class="search" placeholder="Search" />
+      <button class="sort" data-sort="name">
+        Sort
+      </button>
+
+      <ul class="list">
+        <li>
+          <h3 class="name">Jonny Stromberg</h3>
+          <p class="born">1986</p>
+        </li>
+        <li>
+          <h3 class="name">Jonas Arnklint</h3>
+          <p class="born">1985</p>
+        </li>
+        <li>
+          <h3 class="name">Martina Elm</h3>
+          <p class="born">1986</p>
+        </li>
+        <li>
+          <h3 class="name">Gustaf Lindqvist</h3>
+          <p class="born">1983</p>
+        </li>
+      </ul>
+
+    </div>
+
     <table id="goups_background" class="sortable-theme-spsu" style="margin: 0 auto;" data-sortable>
       <thead>
         <tr class="tr_non_clickable"id="goups_background">
@@ -155,6 +270,26 @@
     });
 </script>
 
+<!-- List Scripts -->
+<script type="text/javascript">
+  var options = {
+    valueNames: [ 'name', 'born' ]
+  };
+
+  var values = [ {
+    name: "Martina Elm",
+    born: 1986
+  }];
+
+  var userList = new List('users', options, values);
+
+  userList.add({
+    name: "Gustaf Lindqvist",
+    born: 1983
+  });
+</script>
+
+<!--Template scripts-->
 <script type="template" id="similar_errors_template">
   <tr class="tr_clickable" id="goups_background">
     <td id="main_data">{{url}}
