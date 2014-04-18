@@ -39,9 +39,7 @@ var Session = {
     },
     check: function(){
         var checker = dataStore.get("user");
-        if(checker === -1 ){
-            window.location = "login.html";
-        }else if(checker.name === null){
+        if(checker.name === null){
             window.location = "login.html";
         }else{
             Session.setInfo(checker);
@@ -71,7 +69,7 @@ var dataStore = {
   get: function(key) {
     var value = localStorage.getItem(key);
 
-    if (!value) {return -1;}
+    if (!value) {return;}
 
     // assume it is an object that has been stringified
     if (value[0] === "{") {
@@ -519,16 +517,4 @@ var report = {
 
     }
 }*/
-function listFilter(list, input) {
-  $(input).change( function () {
-    var filter = $(this).val();
-    if (filter) {
-      $(list).find("h2:not(:contains(" + filter + "))").parent().slideUp();
-      $(list).find("h2:contains(" + filter + ")").parent().slideDown();
-    } else {
-      $(list).find("li").slideDown();
-    }
-  }).keyup( function () {
-    $(this).change();
-  });
-}
+    
