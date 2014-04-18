@@ -3,6 +3,8 @@
 <title>Forager: Report</title>
 <link rel="stylesheet" type="text/css" href="css/dashboard.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.0.js"></script>
+<script type="text/javascript" src="sortableplugin/js/sortable.js"></script> 
+<link rel="stylesheet" type="text/css" href="sortableplugin/css/sortable-theme-spsu.css">
 <script type="text/javascript" src="js/session.js"></script>
 </head>
 <body>
@@ -71,7 +73,8 @@
  
       <div class="items">
         <div id="item1">
-        <table id="goups_background">
+        <form>Search Pages:<input id="table_search" class="search_bar" type="text"></form>
+        <table id="goups_background" class="sortable-theme-spsu error_result_table" data-sortable>
             <thead>
               <tr class="tr_non_clickable"id="goups_background">
               
@@ -202,11 +205,12 @@
      var detailsPos = document.querySelector('#report_info');
     var detailsTempl = document.querySelector('#scan_details');
     allReports.showReportErrors(tableTempl, rTable, getFromUrl("id"));
-    //allReports.showReportDetails(detailsTempl, detailsPos, getFromUrl("id"));
+    allReports.showReportDetails(detailsTempl, detailsPos, getFromUrl("id"));
     var rList = document.querySelector('#reports_menu');
     allReports.getReportsList(rList);
     listFilter( $("#list"), $("#domain1"));
     listFilter( $("#list2"), $("#domain2"));
+    tableFilter($(".error_result_table"), $("#table_search"));
 
   });
   $('.collapse > li h2').click(function() {
@@ -252,9 +256,9 @@
   </script>
   <script type="text/javascript" id="scan_table">
   <tr class="tr_clickable" id="goups_background">
-          <td id="main_data"><a href="{{url}}">{{url}}</a>
+          <td id="main_data" style="max-width: 350px; word-wrap: break-word;"><a href="{{url}}">{{url}}</a>
           </td>
-          <td id="side_data_l">{{domain}}
+          <td id="side_data_l" style="max-width: 350px ;word-wrap: break-word;">{{domain}}
           </td>
           
           <td id="side_data_s">{{type}}

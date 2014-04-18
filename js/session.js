@@ -367,7 +367,7 @@ var Render = {
         var inner = "";
         //var i = 0;
         //for ( ; i < data.length; i++ ) {
-            inner += template
+            inner += template.text
             .replace( /\{\{name\}\}/, data["0"])
             .replace( /\{\{time\}\}/, data["3"])
             .replace( /\{\{date\}\}/, data["1"] )
@@ -382,11 +382,12 @@ var Render = {
         var inner = "";
         var i = 0;
         for ( ; i < data.length; i++ ) {
-            inner += template
+            inner += template.text
+            .replace( /\{\{url\}\}/, data[i].url)
             .replace( /\{\{url\}\}/, data[i].url)
             .replace( /\{\{type\}\}/, data[i].status_code)
-            .replace( /\{\{message\}\}/, data[i].status_code_type );
-            //.replace( /\{\{domain\}\}/, data[i].domain);
+            .replace( /\{\{message\}\}/, data[i].status_code_type )
+            .replace( /\{\{domain\}\}/, data[i].domain);
         }
         $("#table-loading").hide();
         result.innerHTML = inner;
@@ -556,6 +557,19 @@ function listFilter(list, input) {
       $(list).find("h2:contains(" + filter + ")").parent().slideDown();
     } else {
       $(list).find("li").slideDown();
+    }
+  }).keyup( function () {
+    $(this).change();
+  });
+}
+function tableFilter(list, input) {
+  $(input).change( function () {
+    var filter = $(this).val();
+    if (filter) {
+      $(list).find("a:not(:contains(" + filter + "))").parent().parent().slideUp();
+      $(list).find("a:contains(" + filter + ")").parent().parent().slideDown();
+    } else {
+      $(list).find("tr").slideDown();
     }
   }).keyup( function () {
     $(this).change();
