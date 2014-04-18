@@ -389,7 +389,7 @@ var Render = {
         }
         $("#table-loading").hide();
         result.innerHTML = inner;
-        window.location.search += '#item1';
+        //window.location.search += '#item1';
 
     },
     renderDomains: function(data, template, result){

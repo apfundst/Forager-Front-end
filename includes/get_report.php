@@ -1,6 +1,6 @@
 <?php
-$scan_id = $_POST('id');
-$func_id = $_POST('funcId');
+$scan_id = $_POST['scanId'];
+$func_id = $_POST['funcId'];
 
 $con = mysqli_connect("localhost","root","forageme","db_forager");
 if (mysqli_connect_errno()){
