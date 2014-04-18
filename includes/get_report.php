@@ -49,7 +49,7 @@ if( $func_id == 2 ){
 	
 	$result = mysqli_query($con,$sql);
 	$arr = array();
-	while( $row = mysqli_fetch_array($result, MYSQLI_BOTH)  ){
+	while( $row = mysqli_fetch_assoc($result)  ){
 		$arr[] = $row;
 	}
 	echo json_encode((array)$arr);
