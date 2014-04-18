@@ -244,9 +244,12 @@ var allReports = {
                 dataType: "json",
                 type: "POST",
                 url: "includes/get_report.php",
-                data: {scanId: id},
+                data: {scanId: id, funcId: 2},
                 success: function(data) {
-                    
+                    //returns
+                    // $scan_name, $start_time,$stop_time, $elapsed_time, 
+                    //$pages_scanned, $number_errors, $avg_errors_per_page);
+
                         console.log("success");
                         console.log(data);
                         
