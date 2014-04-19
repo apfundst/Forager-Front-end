@@ -562,16 +562,22 @@ function listFilter(list, input) {
     $(this).change();
   });
 }
+//takes a table and a form respectivly
 function tableFilter(list, input) {
-  $(input).change( function () {
-    var filter = $(this).val();
-    if (filter) {
+  $(input).find("#clear").hide();
+  $(input).on("submit", function (e) {
+    $(this).append("img").prop("src", "img/ajax-spin.gif");
+     e.preventDefault();
+    var filter = $(".search_bar").val();
       $(list).find("a:not(:contains(" + filter + "))").parent().parent().slideUp();
       $(list).find("a:contains(" + filter + ")").parent().parent().slideDown();
-    } else {
-      $(list).find("tr").slideDown();
-    }
-  }).keyup( function () {
-    $(this).change();
+    $(input).find('input[type="submit"]').hide();
+    $(this).find("img").hide();
+
+     $(input).find("#clear").show();
+  });
+ $(input).find("#clear").click(function(){
+  $("table").find("tr").slideDown();
+  $("#clear").hide();
   });
 }
