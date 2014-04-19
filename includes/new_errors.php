@@ -12,15 +12,13 @@
 
 	$sql = "
 		SELECT  '$table1'.url, '$table1'.domain, '$table1'.status_code_type
-		FROM `'$table1'`
-		JOIN `'$table2'`
+		FROM `$table1`
+		JOIN `$table2`
 		ON   '$table1'.url = '$table2'.url AND '$table1'.state = 1 AND '$table2'.state = 0; 
 	";
 		
 	$arr = array();
-	$result = mysqli_query($con,$sql);
-	$row = mysqli_fetch_array($result, MYSQLI_BOTH);
-		
+	$result = mysqli_query($con,$sql);	
 	if(!is_null($row))
 	{
 		while($temp = mysqli_fetch_assoc($result))

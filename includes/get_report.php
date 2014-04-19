@@ -18,7 +18,7 @@ if( $func_id == 1){
 	";
 	
 	$result = mysqli_query($con,$sql);
-	$row = mysqli_fetch_array($result, MYSQLI_BOTH);
+	$row = mysqli_fetch_assoc($result);
 	
 	$scan_name = $row["scan_name"];
 	$start_time = $row["start_time"];
@@ -28,7 +28,8 @@ if( $func_id == 1){
 
 	// Calculate Elapsed Time
 	$elapsed_time = date_diff($stop_time, $start_time);
-	$elapsed_time->format('%h:%i:%s'); 
+    $elapsed_time->format('%h:%i:%s'); 
+	//$elapsed_time = 99;
 	//Calculate AVG errors per page
 	$avg_errors_per_page = $number_errors/$pages_scanned;
 	//Calculate Percent Pages with Errors
@@ -44,7 +45,7 @@ if( $func_id == 2 ){
 	$table = "url" . $scan_id;
 	$sql = "
 		SELECT url, domain, status_code, status_code_type
-		FROM `'$table'`
+		FROM `$table`
 	";
 	
 	$result = mysqli_query($con,$sql);
