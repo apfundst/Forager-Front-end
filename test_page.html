@@ -1,101 +1,346 @@
-<html>
+<<html>
 <head>
+<title>Forager: Compare Report</title>
 <link rel="stylesheet" type="text/css" href="css/dashboard.css">
-<link rel="stylesheet" type="text/css" href="css/dropdown.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.0.js"></script>
 <script type="text/javascript" src="js/session.js"></script>
+<script type="text/javascript" src="sortableplugin/js/sortable.js"></script>
+<link rel="stylesheet" type="text/css" href="sortableplugin/css/sortable-theme-spsu.css">
+<script type="text/javascript" src="listjs/list.js"></script>
+<link rel="stylesheet" type="text/css" href="listjs/list.css">
+
 </head>
 <body>
 
 <div class="container_fluid">
-
 <nav class="navbar navbar-default" role="navigation">
 <a href="dashboard.html"><img src="img/logo.png" width="400" style="margin-top:8px; margin-bottom:8px;"/></a>
+<div style="color:white; float:right;">
+     <a href="dashboard.html"><button  class="menu" >Home</button></a>
+      <button id="log_out" class="menu">Logout</button><br>
+      <span id="user_logged_in"></span>
+</div>
 </nav>
 
 <div class="row">
 <div class="col-lg-12">
 <div class="panel">
-<div class="panel_heading">
-    Scan Controls
-  </div>
   <div class="panel_body">
-    <form>
-    <div class="dropdown">
-      <select id="select_dropdown1">
+  </div>
+  <div class="panel_body" id="report_info">
+  </div>  
+  <div class="panel_body">
+  <div class="panel_heading">List View</div>
+  <div class="panel_body"> 
 
-      </select>
+    <div id="users">
+      <input class="search" placeholder="Search" />
+      <button class="sort" data-sort="name">
+        Sort
+      </button>
+
+      <ul class="list">
+        <li>
+          <h3 class="name">Jonny Stromberg</h3>
+          <p class="born">1986</p>
+        </li>
+        <li>
+          <h3 class="name">Jonas Arnklint</h3>
+          <p class="born">1985</p>
+        </li>
+        <li>
+          <h3 class="name">Martina Elm</h3>
+          <p class="born">1986</p>
+        </li>
+        <li>
+          <h3 class="name">Gustaf Lindqvist</h3>
+          <p class="born">1983</p>
+        </li>
+      </ul>
+
     </div>
-    <div class="dropdown">
-      <select id="select_dropdown2">
 
-      </select>
+  </div>
+  <!-- text-align:center;}
+      {text-align:right;-->
+<br>
+<div class="panel_heading">Data Tables</div>
+<br>
+
+
+<div class="report_menu">
+    <h3>Select a Table:</h3>
+    <ul class="report_menu_list">
+      <li class="tab">
+          <a  href="#item1">Meta Data List</a>
+      </li>
+      <li class="tab">
+        <a  href="#item2">Similar Errors</a>
+      </li>
+      <li class="tab">
+          <a  href="#item3">New Errors</a>
+      </li>
+      <li class="tab">
+          <a  href="#item4">Resolved Errors</a>
+      </li>
+    </ul>
+
+
+<div class="items">
+  <div id="item2">
+    <div id="users1">
+      <input class="search" placeholder="Search" />
+      <button class="sort" data-sort="name">
+        Sort
+      </button>
+
+      <ul class="list">
+        <li>
+          <h3 class="name">Jonny Stromberg</h3>
+          <p class="born">1986</p>
+        </li>
+        <li>
+          <h3 class="name">Jonas Arnklint</h3>
+          <p class="born">1985</p>
+        </li>
+        <li>
+          <h3 class="name">Martina Elm</h3>
+          <p class="born">1986</p>
+        </li>
+        <li>
+          <h3 class="name">Gustaf Lindqvist</h3>
+          <p class="born">1983</p>
+        </li>
+      </ul>
+
     </div>
-    </form>
-    <table id="goups_background">
-      <thead>
-        <tr class="tr_non_clickable"id="goups_background">
-		<th id="main_data" class="tabel_title" style="color:#FFC425;">
-		Report Name
 
-		</th>
-          <th id="side_data_l" class="tabel_title" >
-		Date
-		</th>
-		<th id="side_data_s" class="tabel_title">
-		Number of Errors
-		</th>
-		<th id="side_data_s" class="tabel_title" >
-		Pages Scanned
-		</th>
-   <th id="side_data_s" class="tabel_title">
-		Select box
-		</th>
-		</tr>
-      </thead>
-      <tbody id="table_result">
-        <!--dummy results-->
-        
-      </tbody>
+    <table id="goups_background" class="sortable-theme-spsu" style="margin: 0 auto;" data-sortable>
+        <thead>
+          <tr class="tr_non_clickable"id="goups_background">
+            <th id="main_data" class="tabel_title" style="color:#FFC425;">
+            Link
+            </th>
+
+            <th id="side_data_1" class="tabel_title">
+            Error Type
+            </th>
+
+            <th id="side_data_2" class="tabel_title">
+            Fixed
+            </th>
+
+          </tr>
+        </thead>
+        <tbody id="similar_table">
+          <!--script for similar-->
+        </tbody> 
     </table>
   </div>
+
+  <div id="item3">
+    <div id="users2">
+      <input class="search" placeholder="Search" />
+      <button class="sort" data-sort="name">
+        Sort
+      </button>
+
+      <ul class="list">
+        <li>
+          <h3 class="name">Jonny Stromberg</h3>
+          <p class="born">1986</p>
+        </li>
+        <li>
+          <h3 class="name">Jonas Arnklint</h3>
+          <p class="born">1985</p>
+        </li>
+        <li>
+          <h3 class="name">Martina Elm</h3>
+          <p class="born">1986</p>
+        </li>
+        <li>
+          <h3 class="name">Gustaf Lindqvist</h3>
+          <p class="born">1983</p>
+        </li>
+      </ul>
+
+    </div>
+    <!--
+    <table id="goups_background" class="sortable-theme-spsu" style="margin: 0 auto;" data-sortable>
+      <thead>
+        <tr class="tr_non_clickable"id="goups_background">
+        <th id="main_data" class="tabel_title" style="color:#FFC425;">
+        URL
+        </th>
+
+        <th id="side_data_1" class="tabel_title">
+        Domain
+        </th>
+
+        <th id="side_data_2" class="tabel_title">
+        Error Type
+        </th>
+
+        <th id="side_data_3" class="tabel_title">
+        Error Message
+        </th>
+        </tr>
+      </thead>
+        <tbody id="new_table">
+          
+        </tbody>        
+    </table>
+  -->
   </div>
-  </div>
+
+  <div id="item4">
+    <div id="users3">
+      <input class="search" placeholder="Search" />
+      <button class="sort" data-sort="name">
+        Sort
+      </button>
+
+      <ul class="list">
+        <li>
+          <h3 class="name">Jonny Stromberg</h3>
+          <p class="born">1986</p>
+        </li>
+        <li>
+          <h3 class="name">Jonas Arnklint</h3>
+          <p class="born">1985</p>
+        </li>
+        <li>
+          <h3 class="name">Martina Elm</h3>
+          <p class="born">1986</p>
+        </li>
+        <li>
+          <h3 class="name">Gustaf Lindqvist</h3>
+          <p class="born">1983</p>
+        </li>
+      </ul>
+
+    </div>
+
+    <table id="goups_background" class="sortable-theme-spsu" style="margin: 0 auto;" data-sortable>
+      <thead>
+        <tr class="tr_non_clickable"id="goups_background">
+        <th id="main_data" class="tabel_title" style="color:#FFC425;">
+        URL
+        </th>
+
+        <th id="side_data_1" class="tabel_title">
+        Domain
+        </th>
+
+        <th id="side_data_2" class="tabel_title">
+        Error Type
+        </th>
+
+        <th id="side_data_3" class="tabel_title">
+        Error Message
+        </th>
+        </tr>
+      </thead>
+        <tbody id="resolved_table">
+          
+        </tbody>        
+    </table>
   </div>
   
-  </div>
+  <div id="default" > <h1>Select a report type above</h1></div>
 
+</div>
+</div>
+</div>
+</div>
+</div>
 <script type="text/javascript">
   $(document).ready(function(){
-    var reportTableResult = document.querySelector('#table_result');
-    var reportTableTmpl = document.querySelector('#reports_template').innerHTML;
-    var reportCompareDropdown = document.querySelector('#select_dropdown1');
-    var reportCompareTmpl = document.querySelector('#compare_dropdown').innerHTML;
-    var reportCompareDropdown = document.querySelector('#select_dropdown2');
-    var reportCompareTmpl = document.querySelector('#compare_dropdown').innerHTML;
-    allReports.get(reportTableTmpl, reportTableResult);
-    allReports.getCompare(reportCompareTmpl, reportCompareDropdown);
-  });
+      Session.check();
+      var str = "Logged in as: " + Session.name;
+      $("#user_logged_in").html(str);
 
+      //********************************************************************************
+      //now I need to call the reportJS methods, and then fill in the tables
+      //also create the SQL for the calls
+      //********************************************************************************
+
+      var report_id1 = getFromUrl("id1");
+      var report_id2 = getFromUrl("id2");
+      var similarErrorTable = document.querySelector('#similar_table');
+      var simialrErrorTmpl = document.querySelector('#similar_errors_template').innerHTML;
+      var newErrorTable = document.querySelector('#new_table');
+      var newErrorTmpl = document.querySelector('#new_errors_template').innerHTML;
+      var resolvedErrorTable = document.querySelector('#resolved_table');
+      var resolvedErrorTmpl = document.querySelector('#resolved_errors_template').innerHTML;
+
+      reportJS.getSimilarErrors(report_id1, report_id2, similar_errors_template, similar_table);
+      reportJS.getNewErrors(report_id1, report_id2, new_errors_template, new_table);
+      report.JS.getResolvedErrors(report_id1, report_id2, resolved_errors_template, resolved_table);
+      //console.log(reportTableData);
+      //Render.renderExistingReports(reportTableData, reportTableTmpl, reportTableResult);
+    });
 </script>
 
-<script type="template" id="reports_template">
-    <tr class="tr_clickable" id="goups_background">
-        <td id="main_data"><a href="report.html?id={{id}}">{{name}}</a>
-        </td>
-        <td id="side_data_l">{{date}}
-        </td>
-        <td id="side_data_s">{{numErr}}
-        </td>
-        <td id="side_data_s">{{numPages}}
-        </td>
-      </tr>
-  </script>
+<!-- List Scripts -->
+<script type="text/javascript">
+  var options = {
+    valueNames: [ 'name', 'born' ]
+  };
 
-  <script type="template" id="compare_dropdown">
-    <option value="{{id}}">{{name}} </option>
-  </script>
+  var values = [ {
+    name: "Martina Elm",
+    born: 1986
+  }];
 
-  <link href='http://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
-  </body>
-  </html>
+  var userList = new List('users', options, values);
+
+  userList.add({
+    name: "Gustaf Lindqvist",
+    born: 1983
+  });
+</script>
+
+<!--Template scripts-->
+<script type="template" id="similar_errors_template">
+  <tr class="tr_clickable" id="goups_background">
+    <td id="main_data">{{url}}
+    </td>
+            
+    <td id="side_data_1">{{type}}
+    </td>
+
+    <td id="side_data_2">{{state}}
+    </td>
+  </tr>
+</script>
+
+<script type="template" id="new_errors_template">
+  <tr class="tr_clickable" id="goups_background">
+    <td id="main_data">{{url}}
+    </td>
+    
+    <td id="side_data_1">{{domain}}
+    </td>
+
+    <td id="side_data_2">{{type}}
+    </td>
+  </tr>
+</script>
+
+<script type="template" id="resolved_errors_template">
+  <tr class="tr_clickable" id="goups_background">
+    <td id="main_data">{{url}}
+    </td>
+    
+    <td id="side_data_1">{{domain}}
+    </td>
+
+    <td id="side_data_2">{{type}}
+    </td>
+  </tr>
+</script>
+
+<link href='http://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
+</body>
+</html>
