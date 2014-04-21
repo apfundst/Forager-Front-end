@@ -64,10 +64,10 @@ var reportJS = {
         var inner = "";
         var i = 0;
         for ( ; i < data.length; i++ ) {
-            inner += template
+            inner += template.text
             .replace(/\{\{url\}\}/, data[i].url)
             .replace(/\{\{type\}\}/, data[i].status_code)
-            .replace(/\{\{state\}\}/, data[i].state)
+            .replace(/\{\{state\}\}/, data[i].state);
         }
         $("#table-loading").hide();
         result.innerHTML = inner;
@@ -76,7 +76,7 @@ var reportJS = {
         var inner = "";
         var i = 0;
         for ( ; i < data.length; i++ ) {
-            inner += template
+            inner += template.text
             .replace( /\{\{url\}\}/, data[i].url)
             .replace( /\{\{domain\}\}/, data[i].domain)
             .replace( /\{\{type\}\}/, data[i].status_code)
