@@ -16,10 +16,14 @@
 	//	from `url1` 
 	//	where url not in (SELECT url FROM `url2` WHERE state = 0) 
 	//	AND state = 0
+	// ONLY NEED errors in scan 1 not in scan 2 and vice versa
+	// 
+
+
 	$sql = "
 		SELECT  url, domain, status_code_type
 		FROM `$table1`
-		WHERE url not in (SELECT url FROM `url2` WHERE state = 0) 
+		WHERE url not in (SELECT url FROM `$table2` WHERE state = 0) 
 		AND state = 0 
 	";
 		
