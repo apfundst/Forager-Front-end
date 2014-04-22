@@ -11,7 +11,7 @@ var reportJS = {
                         console.log("success");
                         console.log(data);
                         
-                        compareJS.renderSimilarErrors(data, template, result);
+                        reportJS.renderSimilarErrors(data, template, result);
                        
                 },
                 error: function (xhr, textStatus, errorThrown) {
@@ -32,7 +32,7 @@ var reportJS = {
                         console.log(data);
                         
 
-                        compareJS.renderTableErrors(ExistingReports()data, template,result);
+                        reportJS.renderTableErrors(data, template,result);
    
                 },
                 error: function (xhr, textStatus, errorThrown) {
@@ -52,7 +52,7 @@ var reportJS = {
                         console.log("success");
                         console.log(data);
                         
-                        compareJS.renderTableErrors(ExistingReports()data, template,result);
+                        reportJS.renderTableErrors(data, template,result);
    
                 },
                 error: function (xhr, textStatus, errorThrown) {
