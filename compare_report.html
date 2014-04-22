@@ -164,7 +164,7 @@
       </ul>
 
     </div>
-    <!--
+    
     <table id="goups_background" class="sortable-theme-spsu" style="margin: 0 auto;" data-sortable>
       <thead>
         <tr class="tr_non_clickable"id="goups_background">
@@ -189,7 +189,7 @@
           
         </tbody>        
     </table>
-  -->
+  
   </div>
 
   <div id="item4">
@@ -273,9 +273,9 @@
       var resolvedErrorTable = document.querySelector('#resolved_table');
       var resolvedErrorTmpl = document.querySelector('#resolved_errors_template').innerHTML;
 
-      reportJS.getSimilarErrors(report_id1, report_id2, similarErrorTmpl, similar_error_table);
-      reportJS.getNewErrors(report_id1, report_id2, NewErrorTmpl, new_table);
-      reportJS.getResolvedErrors(report_id1, report_id2, resolvedErrorTmpl, resolved_table);
+      reportJS.getSimilarErrors(report_id1, report_id2, similarErrorTmpl, similarErrorTable);
+      reportJS.getNewErrors(report_id1, report_id2, NewErrorTmpl, newErrorTable);
+      reportJS.getResolvedErrors(report_id1, report_id2, resolvedErrorTmpl, resolvedErrorTable);
       //console.log(reportTableData);
       //Render.renderExistingReports(reportTableData, reportTableTmpl, reportTableResult);
     });
