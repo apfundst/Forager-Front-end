@@ -64,7 +64,7 @@ var reportJS = {
         var inner = "";
         var i = 0;
         for ( ; i < data.length; i++ ) {
-            inner += template.text
+            inner += template
             .replace(/\{\{url\}\}/, data[i].url)
             .replace(/\{\{type\}\}/, data[i].status_code)
             .replace(/\{\{state\}\}/, data[i].state);
@@ -76,7 +76,7 @@ var reportJS = {
         var inner = "";
         var i = 0;
         for ( ; i < data.length; i++ ) {
-            inner += template.text
+            inner += template
             .replace( /\{\{url\}\}/, data[i].url)
             .replace( /\{\{domain\}\}/, data[i].domain)
             .replace( /\{\{type\}\}/, data[i].status_code)
