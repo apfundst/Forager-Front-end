@@ -204,6 +204,7 @@
   var options = {
     valueNames: [ 'description', 'title' ]
   };
+  //Call a Javascript function that returns the meta data
   var temp = "temp variable";
   var values = [ {
     name: temp,
@@ -238,7 +239,7 @@
 
 <script type="template" id="new_errors_template">
   <tr class="tr_clickable" id="goups_background">
-    <td id="main_data">{{url}}
+    <td id="side_data_l">{{url}}
     </td>
     
     <td id="side_data_l">{{domain}}
@@ -251,7 +252,7 @@
 
 <script type="template" id="resolved_errors_template">
   <tr class="tr_clickable" id="goups_background">
-    <td id="main_data">{{url}}
+    <td id="side_data_l">{{url}}
     </td>
     
     <td id="side_data_l">{{domain}}
