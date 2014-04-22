@@ -9,6 +9,7 @@
 <script type="text/javascript" src="listjs/list.js"></script>
 <link rel="stylesheet" type="text/css" href="listjs/list.css">
 <script type="text/javascript" src="js/report.js"></script>
+<script type="text/javascript" src="includes/list_queries.js"></script>
 
 </head>
 <body>
@@ -41,11 +42,11 @@
 
   <ul class="list">
     <li>
-      <h3 class="title">Item 1</h3>
+      <h3 class="title">Scan 1 Number of Errors</h3>
       <p class="data">subtext 1</p>
     </li>
     <li>
-      <h3 class="title">Item 1</h3>
+      <h3 class="title">Scan 2 Number of Errors</h3>
       <p class="data">subtext 2</p>
     </li>
   </ul>
@@ -202,20 +203,20 @@
 <!-- List Scripts -->
 <script type="text/javascript">
   var options = {
-    valueNames: [ 'description', 'title' ]
+    valueNames: [ 'title', 'data' ]
   };
   //Call a Javascript function that returns the meta data
   var temp = "temp variable";
   var values = [ {
-    name: temp,
-    born: 1234567
+    title: temp,
+    data: 1234567
   }];
 
-  var userList = new List('data', options, values);
+  var dataList = new List('data', options, values);
 
-  userList.add({
-    name: "Added Value",
-    born: 987654
+  dataList.add({
+    title: "Added Value",
+    data: 987654
   });
   $("#table-loading-list").hide();
 </script>
