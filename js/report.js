@@ -73,7 +73,7 @@ var reportJS = {
             .replace(/\{\{type\}\}/, data[i].status_code)
             .replace(/\{\{state\}\}/, data[i].state);
         }
-        $("#table-loading").hide();
+        $("#table-loading-s").hide();
         result.innerHTML = inner;
     },
     renderTableErrors: function(data, template, result){
@@ -83,10 +83,10 @@ var reportJS = {
             inner += template
             .replace( /\{\{url\}\}/, data[i].url)
             .replace( /\{\{domain\}\}/, data[i].domain)
-            .replace( /\{\{type\}\}/, data[i].status_code)
-            .replace( /\{\{message\}\}/, data[i].status_code);
+            .replace( /\{\{type\}\}/, data[i].status_code);
         }
-        $("#table-loading").hide();
+        $("#table-loading-n").hide();
+        $("#table-loading-r").hide();
         result.innerHTML = inner;
     }
 }
