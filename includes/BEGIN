@@ -1,0 +1,29 @@
+SET @url_table = 'url1'; 
+SET @link_rel_table = 'link_rel1'; 
+SET @this_source = 'this source';
+SET @this_link = 'this link'; 
+SET @this_url = 'this url'; 
+SET @this_domain = 'spsu.edu'; 
+SET @this_dest_id = 0;
+SET @temp_id = NULL; 
+SET @checked_url_id = CONCAT('SELECT url_id INTO @temp_id FROM ',@url_table,' WHERE source = ',@this_source,' AND link = ',@this_link,'); 
+PREPARE stmt1 FROM @checked_url_id; 
+EXECUTE stmt1 USING @url_table, @this_source, @this_link; 
+IF @temp_id IS NOT NULL THEN 
+SET @cs2 = CONCAT('INSERT INTO `?`(`url_id`,`dest_id`) VALUES(?,?)'); 
+PREPARE stmt2 FROM @cs2; 
+EXECUTE stmt2 USING @link_rel_table, @temp_id, @this_dest_id; 
+SET @temp_id = 0; 
+ELSE  
+SET @cs3 = CONCAT('INSERT INTO `?` (`url`,`domain`,`link`,`source`) VALUES(?,?,?,?)'); 
+PREPARE stmt3 FROM @cs3; 			  
+EXECUTE stmt3 USING @url_table, @this_url, @this_domain, @this_link, @this_source; 
+SET @temp_id = SELECT last_insert_id(); 
+SET @cs4 = CONCAT('INSERT INTO `?`(`url_id`,`dest_id`) VALUES(?,?)'); 
+PREPARE stmt4 FROM @cs4; 				  
+EXECUTE stmt4 USING @link_rel_table, @temp_id, @this_dest_id; 
+END IF; 
+SELECT @temp_id;
+END 
+
+DECLARE @url_table SET
