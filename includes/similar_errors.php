@@ -1,9 +1,8 @@
 <?php
-	$scan_id1 = $_POST["rep1"];
-	$scan_id2 = $_POST["rep2"];
+	$scan_id1 = $_POST["rp1"];
+	$scan_id2 = $_POST["rp2"];
 
-	session_start();
-	$con = mysqli_connect("localhost","root","forageme","forager");
+	$con = mysqli_connect("localhost","root","forageme","db_forager");
 	if (mysqli_connect_errno()){
 	  echo "Failed to connect to server" . mysqli_connect_error();
 	  exit;
@@ -16,8 +15,8 @@
 		SELECT *
 		FROM `$table1`
 		INNER JOIN `$table2`
-		ON $table1.url = $table2.url
-		GROUP BY $table1.domain ORDER BY $table1.url DESC;
+		ON ".$table1.".url = ".$table2.".url
+		GROUP BY ".$table1.".domain ORDER BY ".$table1.".url DESC;
 	";
 		
 	$arr = array();
