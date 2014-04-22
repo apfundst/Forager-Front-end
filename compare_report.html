@@ -35,6 +35,10 @@
     Sort
   </button>
 
+  <br><center>
+  <img id="table-loading-list" src="img/ajax-loader.gif" />
+  </center>
+
   <ul class="list">
     <li>
       <h3 class="title">Item 1</h3>
@@ -43,14 +47,6 @@
     <li>
       <h3 class="title">Item 1</h3>
       <p class="data">subtext 2</p>
-    </li>
-    <li>
-      <h3 class="title">Item 3</h3>
-      <p class="data">subtext 3</p>
-    </li>
-    <li>
-      <h3 class="title">Item 4</h3>
-      <p class="data">subtext 4</p>
     </li>
   </ul>
 </div>
@@ -119,7 +115,7 @@
     <table id="goups_background" class="sortable-theme-spsu" style="margin: 0 auto;" data-sortable>
       <thead>
         <tr class="tr_non_clickable"id="goups_background">
-        <th id="main_data" class="tabel_title" style="color:#FFC425;">
+        <th id="side_data_l" class="tabel_title" style="color:#FFC425;">
         URL
         </th>
 
@@ -220,6 +216,7 @@
     name: "Added Value",
     born: 987654
   });
+  $("#table-loading-list").hide();
 </script>
 
 <!--Template scripts-->
