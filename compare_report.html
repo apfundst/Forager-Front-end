@@ -26,23 +26,49 @@
 <div class="row">
 <div class="col-lg-12">
 <div class="panel">
+<div class="panel_heading">Overall Data</div>
+<br>
+<!-- Meta Data List -->
+<div id="data">
+  <input class="search" placeholder="Search" />
+  <button class="sort" data-sort="title">
+    Sort
+  </button>
+
+  <ul class="list">
+    <li>
+      <h3 class="title">Item 1</h3>
+      <p class="data">subtext 1</p>
+    </li>
+    <li>
+      <h3 class="title">Item 1</h3>
+      <p class="data">subtext 2</p>
+    </li>
+    <li>
+      <h3 class="title">Item 3</h3>
+      <p class="data">subtext 3</p>
+    </li>
+    <li>
+      <h3 class="title">Item 4</h3>
+      <p class="data">subtext 4</p>
+    </li>
+  </ul>
+</div>
+
+<br>
 <div class="panel_heading">Data Tables</div>
 <br>
-
 <div class="report_menu">
     <h3>Select a Table:</h3>
     <ul class="report_menu_list">
       <li class="tab">
-          <a  href="#item1">Meta Data List</a>
+        <a  href="#item1">Similar Errors</a>
       </li>
       <li class="tab">
-        <a  href="#item2">Similar Errors</a>
+          <a  href="#item2">New Errors</a>
       </li>
       <li class="tab">
-          <a  href="#item3">New Errors</a>
-      </li>
-      <li class="tab">
-          <a  href="#item4">Resolved Errors</a>
+          <a  href="#item3">Resolved Errors</a>
       </li>
     </ul>
 </div>
@@ -60,70 +86,8 @@
   <div id="item1">
 
     <br><center>
-    <img id="table-loading" src="img/ajax-loader.gif" />
-    </center>
-
-    <div id="users1">
-      <input class="search" placeholder="Search" />
-      <button class="sort" data-sort="name">
-        Sort
-      </button>
-
-      <ul class="list">
-        <li>
-          <h3 class="name">Jonny Stromberg</h3>
-          <p class="born">1986</p>
-        </li>
-        <li>
-          <h3 class="name">Jonas Arnklint</h3>
-          <p class="born">1985</p>
-        </li>
-        <li>
-          <h3 class="name">Martina Elm</h3>
-          <p class="born">1986</p>
-        </li>
-        <li>
-          <h3 class="name">Gustaf Lindqvist</h3>
-          <p class="born">1983</p>
-        </li>
-      </ul>
-
-    </div>
-  </div>
-
-  <div id="item2">
-
-    <br><center>
     <img id="table-loading-s" src="img/ajax-loader.gif" />
     </center>
-
-    <div id="users1">
-      <input class="search" placeholder="Search" />
-      <button class="sort" data-sort="name">
-        Sort
-      </button>
-
-      <ul class="list">
-        <li>
-          <h3 class="name">Jonny Stromberg</h3>
-          <p class="born">1986</p>
-        </li>
-        <li>
-          <h3 class="name">Jonas Arnklint</h3>
-          <p class="born">1985</p>
-        </li>
-        <li>
-          <h3 class="name">Martina Elm</h3>
-          <p class="born">1986</p>
-        </li>
-        <li>
-          <h3 class="name">Gustaf Lindqvist</h3>
-          <p class="born">1983</p>
-        </li>
-      </ul>
-
-    </div>
-
     <table id="goups_background" class="sortable-theme-spsu" style="margin: 0 auto;" data-sortable>
         <thead>
           <tr class="tr_non_clickable"id="goups_background">
@@ -131,15 +95,15 @@
             Link
             </th>
 
-            <th id="side_data_1" class="tabel_title">
+            <th id="side_data_l" class="tabel_title">
             Domain
             </th>
 
-            <th id="side_data_2" class="tabel_title">
+            <th id="side_data_s" class="tabel_title">
             Error Type
             </th>
 
-            <th id="side_data_3" class="tabel_title">
+            <th id="side_data_s" class="tabel_title">
             Error Message
             </th>
 
@@ -151,38 +115,11 @@
     </table>
   </div>
 
-  <div id="item3">
+  <div id="item2">
 
     <br><center>
     <img id="table-loading-n" src="img/ajax-loader.gif" />
     </center>
-
-    <div id="users2">
-      <input class="search" placeholder="Search" />
-      <button class="sort" data-sort="name">
-        Sort
-      </button>
-
-      <ul class="list">
-        <li>
-          <h3 class="name">Jonny Stromberg</h3>
-          <p class="born">1986</p>
-        </li>
-        <li>
-          <h3 class="name">Jonas Arnklint</h3>
-          <p class="born">1985</p>
-        </li>
-        <li>
-          <h3 class="name">Martina Elm</h3>
-          <p class="born">1986</p>
-        </li>
-        <li>
-          <h3 class="name">Gustaf Lindqvist</h3>
-          <p class="born">1983</p>
-        </li>
-      </ul>
-
-    </div>
     
     <table id="goups_background" class="sortable-theme-spsu" style="margin: 0 auto;" data-sortable>
       <thead>
@@ -191,16 +128,12 @@
         URL
         </th>
 
-        <th id="side_data_1" class="tabel_title">
+        <th id="side_data_l" class="tabel_title">
         Domain
         </th>
 
-        <th id="side_data_2" class="tabel_title">
+        <th id="side_data_s" class="tabel_title">
         Error Type
-        </th>
-
-        <th id="side_data_3" class="tabel_title">
-        Error Message
         </th>
         </tr>
       </thead>
@@ -211,38 +144,11 @@
   
   </div>
 
-  <div id="item4">
+  <div id="item3">
     
     <br><center>
     <img id="table-loading-r" src="img/ajax-loader.gif" />
     </center>
-
-    <div id="users3">
-      <input class="search" placeholder="Search" />
-      <button class="sort" data-sort="name">
-        Sort
-      </button>
-
-      <ul class="list">
-        <li>
-          <h3 class="name">Jonny Stromberg</h3>
-          <p class="born">1986</p>
-        </li>
-        <li>
-          <h3 class="name">Jonas Arnklint</h3>
-          <p class="born">1985</p>
-        </li>
-        <li>
-          <h3 class="name">Martina Elm</h3>
-          <p class="born">1986</p>
-        </li>
-        <li>
-          <h3 class="name">Gustaf Lindqvist</h3>
-          <p class="born">1983</p>
-        </li>
-      </ul>
-
-    </div>
 
     <table id="goups_background" class="sortable-theme-spsu" style="margin: 0 auto;" data-sortable>
       <thead>
@@ -251,16 +157,12 @@
         URL
         </th>
 
-        <th id="side_data_1" class="tabel_title">
+        <th id="side_data_l" class="tabel_title">
         Domain
         </th>
 
-        <th id="side_data_2" class="tabel_title">
+        <th id="side_data_s" class="tabel_title">
         Error Type
-        </th>
-
-        <th id="side_data_3" class="tabel_title">
-        Error Message
         </th>
         </tr>
       </thead>
@@ -308,19 +210,19 @@
 <!-- List Scripts -->
 <script type="text/javascript">
   var options = {
-    valueNames: [ 'name', 'born' ]
+    valueNames: [ 'description', 'title' ]
   };
-
+  var temp = "temp variable";
   var values = [ {
-    name: "Martina Elm",
-    born: 1986
+    name: temp,
+    born: 1234567
   }];
 
-  var userList = new List('users', options, values);
+  var userList = new List('data', options, values);
 
   userList.add({
-    name: "Gustaf Lindqvist",
-    born: 1983
+    name: "Added Value",
+    born: 987654
   });
 </script>
 
@@ -330,13 +232,13 @@
     <td id="main_data">{{url}}
     </td>
          
-    <td id="side_data_1">{{domain}}
+    <td id="side_data_l">{{domain}}
     </td>
 
-    <td id="side_data_2">{{type}}
+    <td id="side_data_s">{{type}}
     </td>
 
-    <td id="side_data_3">{{state}}
+    <td id="side_data_l">{{state}}
     </td>
   </tr>
 </script>
@@ -346,10 +248,10 @@
     <td id="main_data">{{url}}
     </td>
     
-    <td id="side_data_1">{{domain}}
+    <td id="side_data_l">{{domain}}
     </td>
 
-    <td id="side_data_2">{{type}}
+    <td id="side_data_s">{{type}}
     </td>
   </tr>
 </script>
@@ -359,10 +261,10 @@
     <td id="main_data">{{url}}
     </td>
     
-    <td id="side_data_1">{{domain}}
+    <td id="side_data_l">{{domain}}
     </td>
 
-    <td id="side_data_2">{{type}}
+    <td id="side_data_s">{{type}}
     </td>
   </tr>
 </script>
