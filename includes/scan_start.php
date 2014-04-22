@@ -29,5 +29,6 @@ $new_report_sql ="
 $result = mysqli_query($con,$new_report_sql);
 // Then begin the threading adventure...
 // Will need the actual ****.cs file name
-exec("CSHARP_MAIN_CRAWLER.exe");
+$go = shell_exec("CSHARP_MAIN_CRAWLER.exe");
+echo "Success";
 ?>

@@ -11,16 +11,21 @@
 	$table1 = "url" . $scan_id1;
 	$table2 = "url" . $scan_id2;
 
+	// NEW QUERY
+	// select * 
+	//	from `url1` 
+	//	where url not in (SELECT url FROM `url2` WHERE state = 0) 
+	//	AND state = 0
 	$sql = "
-		SELECT  ".$table1.".url, ".$table1.".domain, ".$table1.".status_code_type
-		FROM `".$table1."`
-		JOIN `".$table2."`
-		ON   ".$table1.".url = ".$table2.".url AND ".$table1.".state = 1 AND ".$table2.".state = 0; 
+		SELECT  url, domain, status_code_type
+		FROM `$table1`
+		WHERE url not in (SELECT url FROM `url2` WHERE state = 0) 
+		AND state = 0 
 	";
 		
 	$arr = array();
 	$result = mysqli_query($con,$sql);	
-	if(!is_null($row))
+	if(!is_null($result))
 	{
 		while($temp = mysqli_fetch_assoc($result))
 		{

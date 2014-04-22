@@ -16,12 +16,13 @@
 		FROM `$table1`
 		INNER JOIN `$table2`
 		ON ".$table1.".url = ".$table2.".url
+		WHERE ".$table1.".state = 0 AND ".$table2.".state = 0
 		GROUP BY ".$table1.".domain ORDER BY ".$table1.".url DESC;
 	";
 		
 	$arr = array();
 	$result = mysqli_query($con,$sql);	
-	if(!is_null($row))
+	if(!is_null($result))
 	{
 		while($temp = mysqli_fetch_assoc($result))
 		{
