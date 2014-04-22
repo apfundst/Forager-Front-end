@@ -45,7 +45,7 @@ var reportJS = {
         $.ajax ({
                 dataType: "json",
                 type: "POST",
-                url: "includes/resolved_errors.php",
+                url: "includes/new_errors.php",
                 data: {rp1: rep2, rp2:rep1},
                 success: function(data) {
                     
