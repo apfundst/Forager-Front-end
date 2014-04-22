@@ -16,6 +16,7 @@ var reportJS = {
                 },
                 error: function (xhr, textStatus, errorThrown) {
                     console.log("fail");
+                    console.log(errorThrown);
 
                 }
             });
@@ -37,6 +38,7 @@ var reportJS = {
                 },
                 error: function (xhr, textStatus, errorThrown) {
                     console.log("fail");
+                    console.log(errorThrown);
   
                 }
             });
@@ -57,6 +59,7 @@ var reportJS = {
                 },
                 error: function (xhr, textStatus, errorThrown) {
                     console.log("fail");
+                    console.log(errorThrown);
                 }
             });
     },
