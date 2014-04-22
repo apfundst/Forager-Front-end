@@ -267,15 +267,15 @@
       var report_id1 = getFromUrl("id1");
       var report_id2 = getFromUrl("id2");
       var similarErrorTable = document.querySelector('#similar_table');
-      var simialrErrorTmpl = document.querySelector('#similar_errors_template').innerHTML;
+      var simialarErrorTmpl = document.querySelector('#similar_errors_template').innerHTML;
       var newErrorTable = document.querySelector('#new_table');
       var newErrorTmpl = document.querySelector('#new_errors_template').innerHTML;
       var resolvedErrorTable = document.querySelector('#resolved_table');
       var resolvedErrorTmpl = document.querySelector('#resolved_errors_template').innerHTML;
 
-      reportJS.getSimilarErrors(report_id1, report_id2, similar_errors_template, similar_table);
-      reportJS.getNewErrors(report_id1, report_id2, new_errors_template, new_table);
-      reportJS.getResolvedErrors(report_id1, report_id2, resolved_errors_template, resolved_table);
+      reportJS.getSimilarErrors(report_id1, report_id2, similarErrorTmpl, similar_table);
+      reportJS.getNewErrors(report_id1, report_id2, NewErrorTmpl, new_table);
+      reportJS.getResolvedErrors(report_id1, report_id2, resolvedErrorTmpl, resolved_table);
       //console.log(reportTableData);
       //Render.renderExistingReports(reportTableData, reportTableTmpl, reportTableResult);
     });
