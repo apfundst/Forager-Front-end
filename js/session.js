@@ -343,7 +343,8 @@ var Render = {
             inner += template
             .replace( /\{\{name\}\}/, data[i].scan_name )
             .replace( /\{\{id\}\}/, data[i].scan_id )
-            .replace( /\{\{date\}\}/, data[i].date )
+            .replace( /\{\{date\}\}/, data[i].start_time )
+            .replace( /\{\{time\}\}/, Date(data[i].stop_time) - Date(data[i].start_time) )
             .replace( /\{\{numErr\}\}/, data[i].number_errors )
             .replace( /\{\{numPages\}\}/, data[i].pages_scanned );
         }
@@ -370,7 +371,7 @@ var Render = {
             inner += template
             .replace( /\{\{name\}\}/, data.scan_name)
             .replace( /\{\{startTime\}\}/, data.start_time)
-            .replace( /\{\{time\}\}/, data.start_time - data.stop_time )
+            .replace( /\{\{time\}\}/, data.stop_time - data.start_time )
             .replace( /\{\{errors\}\}/, data.number_errors )
             .replace( /\{\{avgErr\}\}/, data.number_errors / data.pages_scanned )
             .replace( /\{\{pages\}\}/, data.pages_scanned );
@@ -419,12 +420,12 @@ var Render = {
         }
         $("#table-loading").hide();
         result.innerHTML = inner;
-        window.location.search += '#item1';
+        //window.location.search += '#item1';
 
     },
     renderReportsList: function(data, result){
         var inner = "";
-        var innerTemp = "<li class=\"tab\"> <a href=\"report.html?id={{id}}\">{{report}}</a></li>";
+        var innerTemp = "<li class=\"tab\"> <a href=\"report.html?id={{id}}#item1\">{{report}}</a></li>";
         var i = 0;
         for ( ; i < data.length; i++ ) {
             inner += innerTemp
@@ -566,14 +567,11 @@ function listFilter(list, input) {
 function tableFilter(list, input) {
   $(input).find("#clear").hide();
   $(input).on("submit", function (e) {
-    $(this).append("img").prop("src", "img/ajax-spin.gif");
      e.preventDefault();
     var filter = $(".search_bar").val();
       $(list).find("a:not(:contains(" + filter + "))").parent().parent().slideUp();
       $(list).find("a:contains(" + filter + ")").parent().parent().slideDown();
     $(input).find('input[type="submit"]').hide();
-    $(this).find("img").hide();
-
      $(input).find("#clear").show();
   });
  $(input).find("#clear").click(function(){

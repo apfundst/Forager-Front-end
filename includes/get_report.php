@@ -45,7 +45,7 @@ if( $func_id == 2 ){
 	$table = "url" . $scan_id;
 	$sql = "
 		SELECT url, domain, status_code, status_code_type
-		FROM `$table`
+		FROM `$table` WHERE status_code >= 400
 	";
 	
 	$result = mysqli_query($con,$sql);

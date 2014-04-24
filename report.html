@@ -6,6 +6,10 @@
 <script type="text/javascript" src="sortableplugin/js/sortable.js"></script> 
 <link rel="stylesheet" type="text/css" href="sortableplugin/css/sortable-theme-spsu.css">
 <script type="text/javascript" src="js/session.js"></script>
+<script type="text/javascript" src="listjs/list.js"></script>
+<link rel="stylesheet" type="text/css" href="listjs/list.css">
+<script type="text/javascript" src="js/report.js"></script>
+
 </head>
 <body>
 
@@ -73,7 +77,7 @@
  
       <div class="items">
         <div id="item1">
-        <form  id="table_search">Search Pages:<input id="table_search" class="search_bar" type="text"><input id="search_submit" type="submit"/><button id="clear"> Clear Search</button></form>
+        <!--<form  id="table_search">Search Pages:<input id="table_search" class="search_bar" type="text"><input id="search_submit" type="submit"/><button id="clear"> Clear Search</button></form>-->
         <table id="goups_background" class="sortable-theme-spsu error_result_table" data-sortable>
             <thead>
               <tr class="tr_non_clickable"id="goups_background">
@@ -231,7 +235,7 @@
           </td>
         </tr>
   </script>
-  <script type="text/javascript" id="scan_details">
+  <script type="text/javascript" id="scan_details_olde_time">
   <center><h1>{{name}}</h1></center>
     <table id="groups_background" id="report_details">
         <tr class="tr_non_clickable" id ="groups_background">
@@ -254,6 +258,32 @@
         </tr>   
     </table>
   </script>
+  <script type="template" id="scan_details">
+
+  <center><h1>{{name}}</h1></center>
+  <ul class="list">
+    <li>
+      <h3 class="title">Total Pages Scanned</h3>
+      <p class="data">{{pages}}</p>
+    </li>
+    <li>
+      <h3 class="title">Total Number of Errors</h3>
+      <p class="data">{{errors}}</p>
+    </li>
+    <li>
+      <h3 class="title">Elapsed Scan time</h3>
+      <p class="data">{{time}}</p>
+    </li>
+    <li>
+      <h3 class="title">Scan Start Time</h3>
+      <p class="data">{{startTime}}</p>
+    </li>
+    <li>
+      <h3 class="title">Average Number of Errors Per Page</h3>
+      <p class="data">{{avgErr}}</p>
+    </li>
+    </ul>
+    </script>
   <script type="text/javascript" id="scan_table">
   <tr class="tr_clickable" id="goups_background">
           <td id="main_data" style="max-width: 350px; word-wrap: break-word;"><a href="{{url}}">{{url}}</a>

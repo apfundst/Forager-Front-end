@@ -9,7 +9,7 @@
 <script type="text/javascript" src="listjs/list.js"></script>
 <link rel="stylesheet" type="text/css" href="listjs/list.css">
 <script type="text/javascript" src="js/report.js"></script>
-<script type="text/javascript" src="includes/list_queries.js"></script>
+
 
 </head>
 <body>
@@ -58,10 +58,10 @@
         <a  href="#item1">Similar Errors</a>
       </li>
       <li class="tab">
-          <a  href="#item2">New Errors</a>
+          <a  href="#item2">Report 2 only</a>
       </li>
       <li class="tab">
-          <a  href="#item3">Resolved Errors</a>
+          <a  href="#item3">Report 1 only</a>
       </li>
     </ul>
 </div>
@@ -186,8 +186,8 @@
       var report1Result = document.querySelector("#report_1");
       var report2Result = document.querySelector("#report_2");
 
-      allReports.showReportDetails(listDetailsTmpl, report1Result, 1);
-      allReports.showReportDetails(listDetailsTmpl, report2Result, 2);
+      allReports.showReportDetails(listDetailsTmpl, report1Result, report_id1);
+      allReports.showReportDetails(listDetailsTmpl, report2Result, report_id2);
 
       reportJS.getSimilarErrors(report_id1, report_id2, similarErrorTmpl, similarErrorTable);
       reportJS.getNewErrors(report_id1, report_id2, newErrorTmpl, newErrorTable);
@@ -259,6 +259,10 @@
 </script>
 <script type="template" id="details_list">
 
+    <li>
+      <h3 class="title">Scan Name</h3>
+      <p class="data">{{name}}</p>
+    </li>
     <li>
       <h3 class="title">Total Pages Scanned</h3>
       <p class="data">{{pages}}</p>

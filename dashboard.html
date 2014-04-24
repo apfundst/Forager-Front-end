@@ -114,12 +114,16 @@
     <th id="side_data_l" class="tabel_title" >
 		Date
 		</th>
+    <th id="side_data_s" class="tabel_title" >
+    Elapsed Time
+    </th>
 		<th id="side_data_s" class="tabel_title">
 		Number of Errors
 		</th>
 		<th id="side_data_s" class="tabel_title" >
 		Pages Scanned
 		</th>
+
 		</tr>
       </thead>
       <tbody id="table_result">
@@ -216,9 +220,11 @@
 </script>
 <script type="template" id="reports_template">
     <tr class="tr_clickable" id="goups_background">
-        <td id="main_data"><a href="report.html?id={{id}}">{{name}}</a>
+        <td id="main_data"><a href="report.html?id={{id}}#item1">{{name}}</a>
         </td>
         <td id="side_data_l">{{date}}
+        </td>
+        <td id="side_data_l">{{time}}
         </td>
         <td id="side_data_s">{{numErr}}
         </td>
