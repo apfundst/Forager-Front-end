@@ -88,4 +88,5 @@ var reportJS = {
         $("#table-loading-r").hide();
         result.innerHTML = inner;
     }
+
 }

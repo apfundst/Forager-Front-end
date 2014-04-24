@@ -31,74 +31,21 @@
 <br>
 <!-- Meta Data List -->
 <div id="data">
-  <input class="search" placeholder="Search" />
-  <button class="sort" data-sort="title">
-    Sort
-  </button>
-
-  <br><center>
-  <img id="table-loading-list" src="img/ajax-loader.gif" />
-  </center>
-
   <!--Report 1 -->
+  <div style="display: inline-block; width: 45%;">
   <h1> Report 1 Information: </h1>
-  <ul class="list" style="display: inline-block; width: 45%;">
-    <li>
-      <h3 class="title">Total Pages Scanned</h3>
-      <p class="data">subtext 2</p>
-    </li>
-    <li>
-      <h3 class="title">Total Number of Errors</h3>
-      <p class="data">subtext 1</p>
-    </li>
-    <li>
-      <h3 class="title">Elapsed Scan time</h3>
-      <p class="data">subtext 2</p>
-    </li>
-    <li>
-      <h3 class="title">Scan Start Time</h3>
-      <p class="data">subtext 2</p>
-    </li>
-    <li>
-      <h3 class="title">Elapsed Scan Time</h3>
-      <p class="data">subtext 2</p>
-    </li>
-    <li>
-      <h3 class="title">Average Number of Errors Per Page</h3>
-      <p class="data">subtext 2</p>
-    </li>
-    <!-- Start Time, Scan Elapsed Time, Number of Scanned Pages, Total Number of Errors, and Average Number of Errors per Page showReportDetails-->
+  <ul class="list" id="report_1">
+   
   </ul>
+</div>
 
   <!--Report 2 -->
+  <div style="display: inline-block; width: 45%;">
   <h1> Report 2 Information: </h1>
-  <ul class="list" style="display: inline-block; width: 45%;">
-    <li>
-      <h3 class="title">Total Pages Scanned</h3>
-      <p class="data">subtext 2</p>
-    </li>
-    <li>
-      <h3 class="title">Total Number of Errors</h3>
-      <p class="data">subtext 1</p>
-    </li>
-    <li>
-      <h3 class="title">Elapsed Scan time</h3>
-      <p class="data">subtext 2</p>
-    </li>
-    <li>
-      <h3 class="title">Scan Start Time</h3>
-      <p class="data">subtext 2</p>
-    </li>
-    <li>
-      <h3 class="title">Elapsed Scan Time</h3>
-      <p class="data">subtext 2</p>
-    </li>
-    <li>
-      <h3 class="title">Average Number of Errors Per Page</h3>
-      <p class="data">subtext 2</p>
-    </li>
-    <!-- Start Time, Scan Elapsed Time, Number of Scanned Pages, Total Number of Errors, and Average Number of Errors per Page showReportDetails-->
+  <ul class="list" id="report_2">
+    
   </ul>
+</div>
 </div>
 
 <br>
@@ -235,6 +182,12 @@
       var newErrorTmpl = document.querySelector('#new_errors_template').innerHTML;
       var resolvedErrorTable = document.querySelector('#resolved_table');
       var resolvedErrorTmpl = document.querySelector('#resolved_errors_template').innerHTML;
+      var listDetailsTmpl = document.querySelector("#details_list").innerHTML;
+      var report1Result = document.querySelector("#report_1");
+      var report2Result = document.querySelector("#report_2");
+
+      allReports.showReportDetails(listDetailsTmpl, report1Result, 1);
+      allReports.showReportDetails(listDetailsTmpl, report2Result, 2);
 
       reportJS.getSimilarErrors(report_id1, report_id2, similarErrorTmpl, similarErrorTable);
       reportJS.getNewErrors(report_id1, report_id2, newErrorTmpl, newErrorTable);
@@ -246,7 +199,7 @@
 
 <!-- List Scripts -->
 <script type="text/javascript">
-  var options = {
+  /*var options = {
     valueNames: [ 'title', 'data' ]
   };
   //Call a Javascript function that returns the meta data
@@ -262,7 +215,7 @@
     title: "Added Value",
     data: 987654
   });
-  $("#table-loading-list").hide();
+  $("#table-loading-list").hide();*/
 </script>
 
 <!--Template scripts-->
@@ -304,6 +257,30 @@
     </td>
   </tr>
 </script>
+<script type="template" id="details_list">
+
+    <li>
+      <h3 class="title">Total Pages Scanned</h3>
+      <p class="data">{{pages}}</p>
+    </li>
+    <li>
+      <h3 class="title">Total Number of Errors</h3>
+      <p class="data">{{errors}}</p>
+    </li>
+    <li>
+      <h3 class="title">Elapsed Scan time</h3>
+      <p class="data">{{time}}</p>
+    </li>
+    <li>
+      <h3 class="title">Scan Start Time</h3>
+      <p class="data">{{startTime}}</p>
+    </li>
+    <li>
+      <h3 class="title">Average Number of Errors Per Page</h3>
+      <p class="data">{{avgErr}}</p>
+    </li>
+  
+  </script>
 
 <link href='http://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
 </body>

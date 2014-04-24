@@ -367,13 +367,13 @@ var Render = {
         var inner = "";
         //var i = 0;
         //for ( ; i < data.length; i++ ) {
-            inner += template.text
-            .replace( /\{\{name\}\}/, data["0"])
-            .replace( /\{\{time\}\}/, data["3"])
-            .replace( /\{\{date\}\}/, data["1"] )
-            .replace( /\{\{errors\}\}/, data["5"] )
-            .replace( /\{\{avgErr\}\}/, data["6"] )
-            .replace( /\{\{pages\}\}/, data["4"] );
+            inner += template
+            .replace( /\{\{name\}\}/, data.scan_name)
+            .replace( /\{\{startTime\}\}/, data.start_time)
+            .replace( /\{\{time\}\}/, data.start_time - data.stop_time )
+            .replace( /\{\{errors\}\}/, data.number_errors )
+            .replace( /\{\{avgErr\}\}/, data.number_errors / data.pages_scanned )
+            .replace( /\{\{pages\}\}/, data.pages_scanned );
         //}
         result.innerHTML = inner;
 
@@ -382,7 +382,7 @@ var Render = {
         var inner = "";
         var i = 0;
         for ( ; i < data.length; i++ ) {
-            inner += template.text
+            inner += template
             .replace( /\{\{url\}\}/, data[i].url)
             .replace( /\{\{url\}\}/, data[i].url)
             .replace( /\{\{type\}\}/, data[i].status_code)

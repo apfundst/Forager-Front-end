@@ -14,13 +14,13 @@ if( $func_id == 1){
 	$sql = "
 		SELECT scan_name, start_time, stop_time, pages_scanned, number_errors
 		FROM `scan`
-		WHERE scan_id = '$scan_id';
+		WHERE scan_id = $scan_id;
 	";
 	
 	$result = mysqli_query($con,$sql);
 	$row = mysqli_fetch_assoc($result);
 	
-	$scan_name = $row["scan_name"];
+	/*$scan_name = $row["scan_name"];
 	$start_time = $row["start_time"];
 	$stop_time =  $row["stop_time"];
 	$pages_scanned = $row["pages_scanned"];
@@ -35,8 +35,8 @@ if( $func_id == 1){
 	//Calculate Percent Pages with Errors
 	//$pages_with_errors = $pages_scanned/$number_errors);
 	
-	$arr = array($scan_name, $start_time,$stop_time, $elapsed_time, $pages_scanned, $number_errors, $avg_errors_per_page);	
-	echo json_encode((array)$arr);	
+	$arr = array($scan_name, $start_time,$stop_time, $elapsed_time, $pages_scanned, $number_errors, $avg_errors_per_page);	*/
+	echo json_encode((array)$row);	
 }
 // query database for other data
 // get_url_data
