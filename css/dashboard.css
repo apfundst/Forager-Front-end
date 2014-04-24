@@ -127,6 +127,8 @@ div {
   margin-bottom: -1px;
   background-color: none;
   border-collapse:collapse;
+  max-width: 350px;
+  word-wrap:break-word;
   
 }
 /*added --Used for the main data coming in--*/
@@ -140,6 +142,8 @@ div {
   background-color: none;
   border: none;
   color: #444444;
+  max-width: 350px;
+  word-wrap:break-word;
 }
 /*added --Used for the individual forms--*/
 #table_contents{

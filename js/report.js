@@ -82,7 +82,7 @@ var reportJS = {
             inner += template
             .replace( /\{\{url\}\}/, data[i].url)
             .replace( /\{\{domain\}\}/, data[i].domain)
-            .replace( /\{\{type\}\}/, data[i].status_code);
+            .replace( /\{\{type\}\}/, data[i].status_code_type);
         }
         $("#table-loading-n").hide();
         $("#table-loading-r").hide();
