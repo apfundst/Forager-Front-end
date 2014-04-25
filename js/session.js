@@ -527,6 +527,8 @@ var report = {
                     
                         console.log("success");
                         console.log(data);
+                        $("#start_scan").show();
+                        $("#stop_scan").hide();
                         return data;
                         
 
