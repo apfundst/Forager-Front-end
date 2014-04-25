@@ -3,13 +3,14 @@
 $con = mysqli_connect("localhost","root","forageme","db_forager");
 if (mysqli_connect_errno()){
   echo json_encode("Failed to connect to server.....can you be cool just once! Just once be cool!: " . mysqli_connect_error());
-  //exit;
+  exit;
 }
 else{
 
 	$user_id  = $_POST["userId"];
-	$start_time  = date('Y-m-d H:i:s'); 
-	$scan_name = "report_".$start_time;
+
+	$rando = mt_rand(0,500);
+	$scan_name = "report_".$user_id."_".$rando;
 
 	$scan_running_sql ="
 	 		SELECT *
@@ -26,13 +27,13 @@ else{
 
 	//IF max is not set then insert null...
 	$new_report_sql ="
-			INSERT INTO `scan` (`scan_name`, `started_by`)
-			VALUES ('this_test2','jcathcar');
+			INSERT INTO `scan` (`scan_name`, `started_by`,`start_time`)
+			VALUES ('$scan_name','$user_id', CURRENT_TIMESTAMP );
 	"; 
 	$result = mysqli_query($con, $new_report_sql);
 	if($result == TRUE){
-		exec('C:/inetpub/wwwroot/forager/includes/CSHARP_MAIN_CRAWLER.exe');
 		echo json_encode("Success");
+		exec('C:/inetpub/wwwroot/forager/includes/CSHARP_MAIN_CRAWLER.exe');
 	}else{
 	// Then begin the threading adventure...
 	// Will need the actual ****.cs file name
