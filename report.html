@@ -326,10 +326,10 @@
        $("#print_report").on("submit", function(event){
           //create two variables to store dropdown 1&2
           event.preventDefault();
-          var drop1 = $("#select_dropdown1").val();
+          var id1 = getFromUrl("id");
 
             //send to compare_submit.js
-            Print.Submit(drop1);
+            Print.Submit(id1);
         });
       
     </script>
