@@ -21,17 +21,17 @@ else{
 	if( !is_null($row) ){ 
 	    // Needs to handle front end message somehow
 	    echo json_encode("Already Running");
-	    //exit;
+	    exit;
 	}
 
 	//IF max is not set then insert null...
 	$new_report_sql ="
 			INSERT INTO `scan` (`scan_name`, `started_by`)
-			VALUES ('this_test','jcathcar');
+			VALUES ('this_test2','jcathcar');
 	"; 
 	$result = mysqli_query($con, $new_report_sql);
 	if($result == TRUE){
-		exec("C:\inetpub\wwwroot\forager\includes\CSHARP_MAIN_CRAWLER.exe");
+		exec('C:/inetpub/wwwroot/forager/includes/CSHARP_MAIN_CRAWLER.exe');
 		echo json_encode("Success");
 	}else{
 	// Then begin the threading adventure...
