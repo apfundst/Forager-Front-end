@@ -387,8 +387,10 @@ var Render = {
             .replace( /\{\{url\}\}/, data[i].url)
             .replace( /\{\{url\}\}/, data[i].url)
             .replace( /\{\{type\}\}/, data[i].status_code)
+            .replace( /\{\{source\}\}/, data[i].source)
+            .replace( /\{\{source\}\}/, data[i].source)
             .replace( /\{\{message\}\}/, data[i].status_code_type )
-            .replace( /\{\{domain\}\}/, data[i].domain);
+            .replace( /\{\{domain\}\}/, data[i].domain == "htt" ? "External" : data[i].domain);
         }
         $("#table-loading").hide();
         result.innerHTML = inner;
@@ -411,7 +413,7 @@ var Render = {
 
             }
             inner += template
-            .replace( /\{\{domain\}\}/, data[i].domain)
+            .replace( /\{\{domain\}\}/, data[i].domain == "htt" ? "External" : data[i].domain)
             .replace( /\{\{numpages\}\}/, data[i].number_pages)
             .replace( /\{\{#errors\}\}/, data[i].number_errors)
             //.replace( /\{\{%errors\}\}/, data[i].domain)
@@ -473,15 +475,21 @@ var report = {
                 dataType: "json",
                 type: "POST",
                 url: "includes/scan_start.php",
-                data: {userId: Session.userId},
+                data: {userId: Session.userName},
                 success: function(data) {
+                       console.log(data);
+                    if(data === "Already Running"){
+                        console.log(data);
+                    timeDiv.innerHTML = "Scan Not Started, Scan Already Running.";
+                    }
+                    else if(data === "Success"){
                         var timeDiv = document.getElementById('scan_timer');
                         scanTime.start();
     
                             console.log(Session);
                             
                             //$(this).prop('disabled', true);
-                            $("start_scan").hide();
+                            $("#start_scan").hide();
                             $("#stop_scan").show();
                             
                             var reportDiv = document.getElementById('data_echo');
@@ -495,13 +503,14 @@ var report = {
 
                         //Render.renderExistingReports(data, template,result);
 
-                       
+                       }
                 },
                 error: function (xhr, textStatus, errorThrown) {
 
                             
                     var timeDiv = document.getElementById('scan_timer');
                     console.log("fail");
+                    console.log(errorThrown);
                     timeDiv.innerHTML = "Scan Not Started, Try turing it off and on again. And please ensure your computer is plugged in.";
                     
                 }

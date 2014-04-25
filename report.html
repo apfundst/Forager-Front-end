@@ -52,15 +52,15 @@
     <img id="table-loading" src="img/ajax-loader.gif" />
     </center>
     <div class="report_menu">
-    <h3>Select Report View:</h3>
+    <!-- <h3>Select Report View:</h3>
     <ul class="report_menu_list">
       <li class="tab">
           <a  href="#item1">Table Report</a>
         </li>
-        <li class="tab">
+        <!<li class="tab">
           <a  href="#item2">Tree Report</a>
         </li>
-      </ul>
+      </ul> -->
     <h3>View another report:</h3>
     <img id="yolo-table-loading" src="img/ajax-loader.gif" />
       <ul id="reports_menu" class="report_menu_list">
@@ -76,7 +76,7 @@
       
  
       <div class="items">
-        <div id="item1">
+       <!--  <div > -->
         <!--<form  id="table_search">Search Pages:<input id="table_search" class="search_bar" type="text"><input id="search_submit" type="submit"/><button id="clear"> Clear Search</button></form>-->
         <table id="goups_background" class="sortable-theme-spsu error_result_table" data-sortable>
             <thead>
@@ -88,6 +88,9 @@
           </th>
           <th id="side_data_l" class="tabel_title">
           Domain
+          </th>
+          <th id="side_data_l" class="tabel_title">
+          Source Page
           </th>
 
           <th id="side_data_s" class="tabel_title">
@@ -107,8 +110,8 @@
             </tbody>
               
           </table>
-          </div>
-        <div id="item2"> 
+          <!-- </div> -->
+        <!--<div id="item2"> 
         <form>Search domains:<input id="domain2" class="search_bar" type="text"></form>
         <ul id="list2"class="collapse">
   <li ><h2>Domain<span style="text-align:right;"> #pages, #errors, %with errors</span></h2>
@@ -184,10 +187,10 @@
     </div>
     </li>
 </ul>   
-          </div>
-        <div id="default" > <h1>Select a report type above</h1></div>
+          </div>-->
+        <!-- <div id="default" > <h1>Select a report type above</h1></div>
       </div>
-          </div>
+          </div> -->
         
      
    
@@ -284,11 +287,13 @@
     </li>
     </ul>
     </script>
-  <script type="text/javascript" id="scan_table">
+  <script type="template" id="scan_table">
   <tr class="tr_clickable" id="goups_background">
           <td id="main_data" style="max-width: 350px; word-wrap: break-word;"><a href="{{url}}">{{url}}</a>
           </td>
           <td id="side_data_l" style="max-width: 350px ;word-wrap: break-word;">{{domain}}
+          </td>
+          <td id="side_data_l" style="max-width: 350px ;word-wrap: break-word;"><a href="{{source}}">{{source}}</a>
           </td>
           
           <td id="side_data_s">{{type}}
