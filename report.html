@@ -9,6 +9,7 @@
 <script type="text/javascript" src="listjs/list.js"></script>
 <link rel="stylesheet" type="text/css" href="listjs/list.css">
 <script type="text/javascript" src="js/report.js"></script>
+<script type="text/javascript" src="js/print_submit.js"></script>
 
 </head>
 <body>
@@ -52,6 +53,11 @@
     <img id="table-loading" src="img/ajax-loader.gif" />
     </center>
     <div class="report_menu">
+      
+      <form id="print_report">
+      <button type="submit" id="print_report_button" class="menu">Compare Reports</button>
+      </form>
+      
     <!-- <h3>Select Report View:</h3>
     <ul class="report_menu_list">
       <li class="tab">
@@ -315,6 +321,19 @@
   </script>
  
   </script>
+
+  <script type="text/javascript">
+       $("#print_report").on("submit", function(event){
+          //create two variables to store dropdown 1&2
+          event.preventDefault();
+          var drop1 = $("#select_dropdown1").val();
+
+            //send to compare_submit.js
+            Print.Submit(drop1);
+        });
+      
+    </script>
+
   <link href='http://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
   </body>
   </html>
