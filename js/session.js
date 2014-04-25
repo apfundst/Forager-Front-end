@@ -344,7 +344,7 @@ var Render = {
             .replace( /\{\{name\}\}/, data[i].scan_name )
             .replace( /\{\{id\}\}/, data[i].scan_id )
             .replace( /\{\{date\}\}/, data[i].start_time )
-            .replace( /\{\{time\}\}/, Date(data[i].stop_time) - Date(data[i].start_time) )
+            .replace( /\{\{time\}\}/, data[i].stop_time )
             .replace( /\{\{numErr\}\}/, data[i].number_errors )
             .replace( /\{\{numPages\}\}/, data[i].pages_scanned );
         }
@@ -371,7 +371,7 @@ var Render = {
             inner += template
             .replace( /\{\{name\}\}/, data.scan_name)
             .replace( /\{\{startTime\}\}/, data.start_time)
-            .replace( /\{\{time\}\}/, data.stop_time - data.start_time )
+            .replace( /\{\{time\}\}/, data.stop_time)
             .replace( /\{\{errors\}\}/, data.number_errors )
             .replace( /\{\{avgErr\}\}/, data.number_errors / data.pages_scanned )
             .replace( /\{\{pages\}\}/, data.pages_scanned );
@@ -483,6 +483,8 @@ var report = {
                         var timeDiv = document.getElementById('scan_timer');
                         
                     timeDiv.innerHTML = "Scan Not Started, Scan Already Running.";
+                    $("#start_scan").hide();
+                            $("#stop_scan").show();
                     }
                     else if(data === "Success"){
                         var timeDiv = document.getElementById('scan_timer');
@@ -530,6 +532,8 @@ var report = {
                         console.log(data);
                         $("#start_scan").show();
                         $("#stop_scan").hide();
+                        var timeDiv = document.getElementById('scan_timer');
+                        timeDiv.innerHTML = "";
                         return data;
                         
 
@@ -554,7 +558,7 @@ var report = {
                 success: function(data) {
                     
                         console.log(data);
-                        return data["COUNT(*)"];
+                        return data;
                         
 
                         //Render.renderExistingReports(data, template,result);
