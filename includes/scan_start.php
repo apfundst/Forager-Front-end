@@ -27,7 +27,7 @@ else{
 	//IF max is not set then insert null...
 	$new_report_sql ="
 			INSERT INTO `scan` (`scan_name`, `started_by`)
-			VALUES ('$scan_name','$user_id');
+			VALUES ('this_test','jcathcar');
 	"; 
 	$result = mysqli_query($con, $new_report_sql);
 	if($result == TRUE){
