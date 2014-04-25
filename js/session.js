@@ -496,7 +496,7 @@ var report = {
                             
                             var reportDiv = document.getElementById('data_echo');
                             scanTime.timer = setInterval(function () {
-                              timeDiv.innerHTML = "Seconds since the start: " + (scanTime.getElapsed()/1000) + "   Pages Scanned" + report.pageCount();
+                              timeDiv.innerHTML = "Seconds since the start: " + (scanTime.getElapsed()/1000) + "   Pages Scanned " + report.pageCount();
                               //reportDiv.innerhtml = reportViewer.getData();
                             }, 1000);
 
@@ -553,8 +553,8 @@ var report = {
                 data: {userId: Session.userId},
                 success: function(data) {
                     
-                        
-                        return data[0];
+                        console.log(data);
+                        return data["COUNT(*)"];
                         
 
                         //Render.renderExistingReports(data, template,result);
