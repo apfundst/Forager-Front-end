@@ -23,6 +23,7 @@ else{
 		";
 		$result2 = mysqli_query($con,$sql2);
 		$row2 = mysqli_fetch_assoc($result2);
-		echo json_encode($row2)
+		$grf = $row2["COUNT(*)"];
+		echo json_encode($grf);
 }
 ?>

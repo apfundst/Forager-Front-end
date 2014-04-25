@@ -9,7 +9,7 @@ else{
 
 	$user_id  = $_POST["userId"];
 
-	$rando = mt_rand(0,500);
+	$rando = mt_rand(0,50);
 	$scan_name = "report_".$user_id."_".$rando;
 
 	$scan_running_sql ="
