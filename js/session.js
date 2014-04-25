@@ -480,6 +480,8 @@ var report = {
                        console.log(data);
                     if(data === "Already Running"){
                         console.log(data);
+                        var timeDiv = document.getElementById('scan_timer');
+                        
                     timeDiv.innerHTML = "Scan Not Started, Scan Already Running.";
                     }
                     else if(data === "Success"){
@@ -494,7 +496,7 @@ var report = {
                             
                             var reportDiv = document.getElementById('data_echo');
                             scanTime.timer = setInterval(function () {
-                              timeDiv.innerHTML = "Seconds since the start: " + (scanTime.getElapsed()/1000);
+                              timeDiv.innerHTML = "Seconds since the start: " + (scanTime.getElapsed()/1000) + "   Pages Scanned" + report.pageCount();
                               //reportDiv.innerhtml = reportViewer.getData();
                             }, 1000);
 
@@ -516,7 +518,6 @@ var report = {
                 }
             });
     },
-
     stop: function(){
         $.ajax ({
                 dataType: "json",
@@ -530,6 +531,30 @@ var report = {
                         $("#start_scan").show();
                         $("#stop_scan").hide();
                         return data;
+                        
+
+                        //Render.renderExistingReports(data, template,result);
+
+                       
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    console.log("fail");
+
+                    
+                }
+            });
+    },
+
+    pageCount: function(){
+        $.ajax ({
+                dataType: "json",
+                type: "POST",
+                url: "includes/get_page_count.php",
+                data: {userId: Session.userId},
+                success: function(data) {
+                    
+                        
+                        return data[0];
                         
 
                         //Render.renderExistingReports(data, template,result);
