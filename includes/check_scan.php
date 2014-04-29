@@ -9,9 +9,6 @@ else{
 
 	$user_id  = $_POST["userId"];
 
-	$rando = mt_rand(0,50);
-	$scan_name = "report_".$user_id."_".$rando;
-
 	$scan_running_sql ="
 	 		SELECT *
 	 		FROM `scan`
@@ -20,9 +17,10 @@ else{
 		$result = mysqli_query($con,$scan_running_sql);
 		$row = mysqli_fetch_assoc($result);
 	if( !is_null($row) ){ 
-	    // Needs to handle front end message somehow
+	    
 	    echo json_encode("Already Running");
-	    exit;
-	}
+	   
+	}else{echo json_encode("randocommando");}
+	
 }
 ?>
