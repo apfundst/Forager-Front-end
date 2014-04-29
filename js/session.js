@@ -61,7 +61,7 @@ var Session = {
         $.ajax ({
                 dataType: "json",
                 type: "POST",
-                url: "includes/scan_start.php",
+                url: "includes/check_scan.php",
                 data: {userId: Session.userName},
                 success: function(data) {
                     console.log(data);
