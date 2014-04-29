@@ -408,7 +408,8 @@ var Render = {
             .replace( /\{\{time\}\}/, data.stop_time)
             .replace( /\{\{errors\}\}/, data.number_errors )
             .replace( /\{\{avgErr\}\}/, data.number_errors / data.pages_scanned )
-            .replace( /\{\{pages\}\}/, data.pages_scanned );
+            .replace( /\{\{pages\}\}/, data.pages_scanned )
+            .replace( /\{\{pages_with_errors\}\}/, data.pages_with_errors);
         //}
         result.innerHTML = inner;
 
