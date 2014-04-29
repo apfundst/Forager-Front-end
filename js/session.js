@@ -70,6 +70,12 @@ var Session = {
                         console.log(data);
                         $("#start_scan").hide();
                         $("#stop_scan").show();
+                        
+                            scanTime.timer = setInterval(function () {
+                                 report.pageCount();
+                             
+                              //reportDiv.innerhtml = reportViewer.getData();
+                            }, 1000);
                     }
                     else if(data === "Success"){
                         //scan is running
@@ -80,7 +86,7 @@ var Session = {
                     var timeDiv = document.getElementById('scan_timer');
                     console.log("fail");
                     console.log(errorThrown);
-                    window.location.reload(true);
+                    
                 }
             });
     }
@@ -497,6 +503,7 @@ var reportViewer = {
     }
 }
 var report = {
+    curNum: 0,
     start: function(){
         $.ajax ({
                 dataType: "json",
@@ -561,6 +568,7 @@ var report = {
                         $("#stop_scan").hide();
                         var timeDiv = document.getElementById('scan_timer');
                         timeDiv.innerHTML = "";
+                        
                         return data;
                         
 
@@ -585,7 +593,11 @@ var report = {
                 success: function(data) {
                     
                         console.log(data);
-                        return data;
+                        curNum = data;
+                        var reportDiv = document.getElementById('data_echo');
+                         reportDiv.innerHTML =  "Pages Scanned " + data;
+
+                        
                         
 
                         //Render.renderExistingReports(data, template,result);
