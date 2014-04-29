@@ -67,7 +67,6 @@ var Session = {
                     console.log(data);
                     if(data === "Already Running"){
                         console.log(data);
-                        timeDiv.innerHTML = "Scan Not Started, Scan Already Running.";
                         $("#start_scan").hide();
                         $("#stop_scan").show();
                     }
