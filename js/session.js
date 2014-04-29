@@ -379,6 +379,7 @@ var Render = {
             .replace( /\{\{date\}\}/, data[i].start_time )
             .replace( /\{\{time\}\}/, data[i].stop_time )
             .replace( /\{\{numErr\}\}/, data[i].number_errors )
+            .replace( /\{\{numErrPages\}\}/, data[i].pages_with_errors )
             .replace( /\{\{numPages\}\}/, data[i].pages_scanned );
         }
         $("#table-loading").hide();
