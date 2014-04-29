@@ -147,7 +147,7 @@
   $(document).ready(function(){
     Session.check();
     $("#stop_scan").hide();
-    Session.checkStarter();
+    Session.checkStarted();
     var str = "Logged in as: " + Session.name;
     $("#user_logged_in").html(str);
     var reportTableResult = document.querySelector('#table_result');
