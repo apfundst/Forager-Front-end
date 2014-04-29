@@ -10,7 +10,7 @@ else{
 	$user_id  = $_POST["userId"];
 
 	$rando = mt_rand(0,50);
-	$scan_name = "report_".$user_id."_".$rando;
+	$scan_name = "report_".$user_id;
 
 	$scan_running_sql ="
 	 		SELECT *
@@ -33,7 +33,7 @@ else{
 	$result = mysqli_query($con, $new_report_sql);
 	if($result == TRUE){
 		echo json_encode("Success");
-		exec('C:/inetpub/wwwroot/forager/includes/CSHARP_MAIN_CRAWLER.exe');
+		shell_exec('start C:/inetpub/wwwroot/forager/includes/CSHARP_MAIN_CRAWLER.exe');
 	}else{
 	// Then begin the threading adventure...
 	// Will need the actual ****.cs file name
