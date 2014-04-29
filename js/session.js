@@ -56,6 +56,32 @@ var Session = {
         Session.userId = null;
         dataStore.set("user", Session);
         window.location = "login.html";
+    },
+    checkStarted: function(){
+        $.ajax ({
+                dataType: "json",
+                type: "POST",
+                url: "includes/scan_start.php",
+                data: {userId: Session.userName},
+                success: function(data) {
+                    console.log(data);
+                    if(data === "Already Running"){
+                        console.log(data);
+                        timeDiv.innerHTML = "Scan Not Started, Scan Already Running.";
+                        $("#start_scan").hide();
+                        $("#stop_scan").show();
+                    }
+                    else if(data === "Success"){
+                        //scan is running
+                        console.log("it returned success...");
+                    }
+                },
+                error: function (xhr, textStatus, errorThrown) {      
+                    var timeDiv = document.getElementById('scan_timer');
+                    console.log("fail");
+                    console.log(errorThrown);
+                }
+            });
     }
 }
 
