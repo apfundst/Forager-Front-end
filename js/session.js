@@ -62,6 +62,7 @@ var Session = {
                 dataType: "json",
                 type: "POST",
                 url: "includes/check_scan.php",
+                timeout: 2000,
                 data: {userId: Session.userName},
                 success: function(data) {
                     console.log(data);
@@ -79,6 +80,7 @@ var Session = {
                     var timeDiv = document.getElementById('scan_timer');
                     console.log("fail");
                     console.log(errorThrown);
+                    window.location.reload(true);
                 }
             });
     }

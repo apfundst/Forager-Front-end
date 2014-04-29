@@ -33,7 +33,7 @@ else{
 	$result = mysqli_query($con, $new_report_sql);
 	if($result == TRUE){
 		echo json_encode("Success");
-		shell_exec('start C:/inetpub/wwwroot/forager/includes/CSHARP_MAIN_CRAWLER.exe');
+		exec("php C:/inetpub/wwwroot/forager/includes/start.php");
 	}else{
 	// Then begin the threading adventure...
 	// Will need the actual ****.cs file name
